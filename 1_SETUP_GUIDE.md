@@ -97,7 +97,70 @@ Follow the prompts to:
 
 Once authenticated, you'll see Claude's prompt ready for input.
 
-**You're done with setup!** Head to [2_FIRST_SESSION.md](2_FIRST_SESSION.md) to learn what to do next.
+**You're ready to use Claude Code!** The remaining steps are optional but useful. Head to [2_FIRST_SESSION.md](2_FIRST_SESSION.md) when you're ready.
+
+---
+
+## Step 6: Keep Personal Files Out of Git
+
+**What is .gitignore?**
+A file that tells Git "don't track these files." Useful for personal notes, local config, or anything you don't want shared when you push to GitHub.
+
+**How to create one:**
+1. In your project folder, create a file called `.gitignore` (note the dot at the start)
+2. Add filenames or patterns, one per line
+
+**Example .gitignore:**
+```
+SESSION_LOG.md
+CLAUDE.md
+.env
+notes/
+```
+
+**Common files to ignore:**
+- `SESSION_LOG.md` / `CLAUDE.md` — personal project notes
+- `.env` — files with passwords or API keys
+- `node_modules/` — installed packages (can be reinstalled)
+- `.DS_Store` — macOS system files
+
+**Already tracking a file you want to ignore?**
+Adding it to .gitignore won't stop tracking it. Ask Claude:
+```
+Remove SESSION_LOG.md from git tracking but keep the file
+```
+
+---
+
+## Step 7: Set Up GitHub + Vercel for Auto-Deploy
+
+**What is this?**
+If you're building a website or app, you can connect your project to GitHub and Vercel so that every time you commit, your site automatically updates.
+
+**Note:** This works well for simple projects — static sites, portfolios, documentation, basic web apps. Projects with complicated backends or external services may need a different setup.
+
+**What you need:**
+- A GitHub account (free at github.com)
+- A Vercel account (free at vercel.com)
+
+**How to set it up:**
+Ask Claude to help you. Try:
+```
+Help me set up this project with GitHub and connect it to Vercel for auto-deploy
+```
+
+Claude will walk you through each step and run the commands for you.
+
+**Once it's set up:**
+```
+You: commit
+
+Claude: [pushes to GitHub]
+
+Vercel: [auto-deploys your site]
+```
+
+See [5_SLASH_COMMANDS.md](5_SLASH_COMMANDS.md) for more on the `/commit` shortcut.
 
 ---
 
@@ -156,4 +219,3 @@ Each VS Code window can only be in one folder at a time. To switch projects:
 4. Type `claude` to start Claude Code in the new project
 
 Or open a second VS Code window (`File` → `New Window`) to work on multiple projects at once.
-

@@ -64,6 +64,9 @@ Now whenever you type `/commit` or just "commit", Claude:
 3. Pushes to your repository
 4. All without extra prompts
 
+**Bonus: Auto-deploy to Vercel**
+If you've connected your GitHub repo to Vercel (see [1_SETUP_GUIDE.md](1_SETUP_GUIDE.md#optional-set-up-github--vercel-for-auto-deploy)), every `/commit` automatically triggers a deploy. Your site updates without any extra steps.
+
 ### Example: The `/review-session` Command
 
 For tracking work across sessions:
