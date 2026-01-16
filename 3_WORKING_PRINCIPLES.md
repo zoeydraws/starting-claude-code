@@ -167,7 +167,47 @@ Claude: [Reads the log and has context]
 
 ---
 
-## Principle 7: Claude Code vs Claude.ai — When to Use Which
+## Principle 7: Clear Context After Each Task
+
+**The problem:**
+As your conversation grows, Claude has to "compact" (summarize) older context to make room for new work. This can lose details and slow things down.
+
+**The solution:**
+Clear context after completing each task. This gives Claude a fresh start with full capacity.
+
+**The workflow:**
+```
+1. Complete your task
+2. /review-session     → Claude updates SESSION_LOG.md
+3. commit              → Push changes if using version control (optional)
+4. /clear              → Clear conversation, fresh context
+```
+
+**Why this matters:**
+- Claude works better with focused, fresh context
+- Your work is saved in files and SESSION_LOG before clearing
+- Next time you start, Claude reads SESSION_LOG to catch up
+
+**Example:**
+```
+You: [Finish reorganizing the research docs]
+
+You: /review-session
+
+Claude: [Updates SESSION_LOG.md with what you did]
+
+You: commit
+
+Claude: [Commits and pushes changes]
+
+You: /clear
+
+[Fresh context — ready for next task]
+```
+
+---
+
+## Principle 8: Claude Code vs Claude.ai — When to Use Which
 
 | Use Claude Code when... | Use Claude.ai when... |
 |------------------------|----------------------|
@@ -181,7 +221,7 @@ Claude: [Reads the log and has context]
 
 ---
 
-## Principle 8: Be Specific About What You Want
+## Principle 9: Be Specific About What You Want
 
 **Vague requests lead to mismatched results.**
 
@@ -207,7 +247,7 @@ Group these findings by theme, with the most common themes first
 
 ---
 
-## Principle 9: Don't Hesitate to Say "No" or "Stop"
+## Principle 10: Don't Hesitate to Say "No" or "Stop"
 
 Claude won't be offended. It's a tool.
 
@@ -223,7 +263,7 @@ Claude won't be offended. It's a tool.
 
 ---
 
-## Principle 10: Review Changes Before Approving
+## Principle 11: Review Changes Before Approving
 
 Claude will show you "diffs" — comparisons between old and new content. Take a moment to actually read them.
 

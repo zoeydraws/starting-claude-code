@@ -4,6 +4,28 @@ Work timeline for the Starting Claude guide project. Newest entries at top.
 
 ---
 
+## 2026-01-16 - Added Context Management Principle
+
+**Changes:**
+- Added Principle 7: Clear Context After Each Task (review-session → commit → /clear workflow)
+- Renumbered principles (now 11 total)
+- Updated README messaging: "beginner guide, if you want advanced find Pras"
+- Updated "some coding required, but you can learn as you go"
+
+**Decisions:**
+- Context management workflow: task complete → /review-session → commit → /clear
+- Keeps Claude working with fresh, focused context instead of compacting old conversations
+
+**Current State:**
+- Working: 11 principles, all deployed to GitHub
+- Guide messaging updated to be more casual/realistic
+
+**Next Steps:**
+- Test guide with actual beginners
+- Consider screenshots
+
+---
+
 ## 2026-01-16 - Initial Guide Creation
 
 **Changes:**
