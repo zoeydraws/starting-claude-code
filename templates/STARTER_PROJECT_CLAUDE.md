@@ -35,7 +35,8 @@ WHEN TO USE THIS:
 ├── folder-name/          # What's in this folder
 ├── another-folder/       # What's in this folder
 ├── important-file.md     # What this file is for
-└── CLAUDE.md             # This file
+├── CLAUDE.md             # This file
+└── SESSION_LOG.md        # Work timeline (newest entries at top)
 ```
 
 ## Key Terminology
