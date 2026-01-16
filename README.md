@@ -1,6 +1,6 @@
 # Starting Claude Code
 
-Zoey's noob guide to use Claude Code.
+Zoey's noob guide to using Claude Code.
 
 ## What Is Claude Code?
 
