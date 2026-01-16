@@ -120,8 +120,6 @@ Most commands are safe, but a few can delete files permanently, change system se
 | `chmod` / `chown`  | Changes file permissions  | Can lock you out of files or expose them           |
 | `npm install -g`   | Installs globally         | Affects your whole system, not just this project   |
 
-```
-
 **Good news:** Claude Code asks for permission before running commands, so you always have a chance to say no. But knowing these patterns helps you ask the right questions.
 
 **Rule of thumb:** If a command looks unfamiliar or has flags you don't recognize, ask Claude to explain it in plain English first.
@@ -316,4 +314,3 @@ Claude: I can see the button has uneven padding. I'll adjust the CSS...
 
 - Set up your CLAUDE.md files using the templates in `templates/`
 - Learn how to get better output in [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md)
-```
