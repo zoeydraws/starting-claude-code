@@ -23,6 +23,19 @@ In the previous guide, we covered [slash commands](5_SLASH_COMMANDS.md) — shor
 
 Think of slash commands as buttons you press. Skills are more like teaching Claude habits — once installed, Claude uses them whenever relevant.
 
+### Why This Matters: Saving Tokens
+
+Your CLAUDE.md file is loaded into Claude's memory for **every conversation**. If it's full of situational instructions (like "when writing a research report, use this format..."), Claude reads all of that even when you're just asking it to commit code.
+
+**Skills let you move situational instructions out of CLAUDE.md.**
+
+- CLAUDE.md → Things Claude **always** needs to know
+- Skills → Things Claude only needs **sometimes**
+
+**Example:** You have detailed instructions for creating UX research reports. Instead of keeping this in CLAUDE.md (loaded every time), move it to a `ux-research-report` skill. Claude only loads those instructions when you're actually working on a report.
+
+This keeps your context lean and saves tokens for what actually matters in each conversation.
+
 ---
 
 ## What Is a Skill?
@@ -133,6 +146,44 @@ For complex skills, you can include supporting files. Claude reads the main SKIL
 ```
 
 This keeps Claude's context focused — it doesn't load everything upfront, just what's needed for the current task.
+
+---
+
+## What Skills Should I Add?
+
+**Only the ones you actually need.**
+
+It's tempting to install a bunch of skills "just in case" — but every skill adds to what Claude has to scan through to decide what's relevant. More isn't better.
+
+### Good Reasons to Add a Skill
+
+- You do this task **repeatedly** (weekly or more)
+- The task has a **specific format** you want followed every time
+- You're currently keeping detailed instructions in CLAUDE.md that are **only sometimes relevant**
+
+### Bad Reasons to Add a Skill
+
+- "This looks cool"
+- "I might need this someday"
+- "Everyone recommends it"
+
+### A Practical Approach
+
+1. **Start with zero skills** — See what you actually need
+2. **Notice friction** — What do you keep re-explaining to Claude?
+3. **Add one skill** — For your most repeated workflow
+4. **Evaluate** — Did it actually help? Keep or remove.
+5. **Repeat** — Add skills one at a time, based on real need
+
+### Build vs Download
+
+| Situation | Better Choice |
+|-----------|---------------|
+| Generic capability (create Word docs) | Download official skill |
+| Your team's specific format/process | Build your own |
+| Trying something new | Download, then customize |
+
+The official Anthropic skills are good for **generic outputs** (documents, spreadsheets). For **your specific workflows** (your research report format, your PRD template), custom skills will serve you better.
 
 ---
 
