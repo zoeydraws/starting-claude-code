@@ -16,6 +16,8 @@ VS Code (Visual Studio Code) is a free text editor made by Microsoft. It's popul
 
 **Already have VS Code?** Skip to Step 2.
 
+---
+
 ## Step 2: Open Your Project Folder in VS Code
 
 **What is a "project folder"?**
@@ -30,6 +32,8 @@ Any folder with files you want to work on. This could be a research project, a f
 Your folder's files appear in the left sidebar. You can click any file to view or edit it.
 
 **Don't have a project yet?** Create a new folder on your Desktop and open that. You can always switch later.
+
+---
 
 ## Step 3: Open the Terminal in VS Code
 
@@ -50,6 +54,8 @@ This is called the "command line" or "prompt". It's waiting for you to type some
 
 **Important:** The terminal automatically starts in your project folder (the one you opened in Step 2). This saves you from navigating manually.
 
+---
+
 ## Step 4: Install Claude Code
 
 **What we're doing:**
@@ -67,6 +73,8 @@ npm is a tool that installs programs. If you see an error like `command not foun
 - Several lines of text scrolling by
 - It might take 1-2 minutes
 - When done, you'll see your prompt again (`yourname@MacBook project-folder %`)
+
+---
 
 ## Step 5: Start Claude Code
 

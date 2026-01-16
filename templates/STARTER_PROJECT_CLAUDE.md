@@ -62,25 +62,18 @@ WHEN TO USE THIS:
 - **"/update-status"**: [What should this command do?]
 - **"/summarize-findings"**: [What should this command do?]
 
-## Current Focus
+## Key Decisions
 
-<!-- What are you working on right now? Update this as you go. -->
+<!-- Record important decisions so you remember why things are the way they are -->
 
-**Currently working on:** [Brief description]
-
-**Next steps:**
-- [ ] [Task 1]
-- [ ] [Task 2]
-
-**Recent decisions:**
 - [Date]: [Decision made and why]
+- [Date]: [Another decision]
 
 ---
 
 <!--
 TIPS:
 - Keep this file updated as your project evolves
-- Move completed work to SESSION_LOG.md
-- Don't include information that changes daily — that goes in SESSION_LOG
-- This file is for stable patterns and decisions
+- Track daily work and next steps in SESSION_LOG.md, not here
+- This file is for stable patterns, structure, and decisions
 -->

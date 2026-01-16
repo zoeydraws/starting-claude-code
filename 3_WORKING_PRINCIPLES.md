@@ -26,30 +26,103 @@ You: Actually, keep the "Methods" section where it is
 Claude: Got it, I'll reorganize everything except Methods...
 ```
 
-## Principle 2: One Thing at a Time
+---
 
-**The pattern:**
-Ask for one task, see it through, then ask for the next.
+## Principle 2: Break Big Work into Phases
+
+**Claude struggles with big chunks of work.**
+
+Asking Claude to "build me a whole app" or "do this entire project" leads to messy or incomplete results. Claude works best on focused, specific chunks — not entire projects at once.
+
+**Rule of thumb:** If the task would take you hours to do manually, break it into phases first.
+
+| Instead of... | Try... |
+|---------------|--------|
+| "Build me a portfolio website" | "Let's plan out a portfolio site in phases. What are the key sections I need?" |
+| "Analyze all 20 transcripts and write a report" | "Let's start with 3 transcripts. What themes do you notice?" |
+| "Create the whole presentation" | "Help me outline the presentation first, then we'll build each section" |
+
+**Example:**
+```
+You: I need to reorganize all my research findings into a final report
+
+Claude: That's a big task. Let's break it into phases:
+- Phase 1: Review and tag all findings
+- Phase 2: Group by theme
+- Phase 3: Write section summaries
+- Phase 4: Compile into final report
+
+Which phase should we start with?
+```
+
+---
+
+## Principle 3: Plan Before You Execute
+
+**Claude Code has two modes:**
+
+| Mode | What It Does | How to Enter |
+|------|--------------|--------------|
+| Plan mode | Claude researches and proposes an approach, but doesn't make changes | `Shift + Tab` to toggle |
+| Execute mode | Claude makes actual changes to your files | Default mode |
+
+**When to use plan mode:**
+- Starting a new phase of work
+- Unfamiliar task where you want to see the approach first
+- Anything that touches multiple files
+
+**Example:**
+```
+You: [Shift + Tab to enter plan mode]
+You: How should we reorganize the transcripts folder?
+
+Claude: Here's my suggested approach:
+1. Create subfolders by participant type
+2. Rename files with consistent naming
+3. Move files to appropriate folders
+4. Update any references
+
+[Claude doesn't make changes yet — just plans]
+
+You: [Shift + Tab to exit plan mode]
+You: Ok let's do step 1
+```
 
 **Why this matters:**
-Bundling multiple requests often leads to confusion or missed items. Single requests give you more control.
+- You see Claude's thinking before it acts
+- You catch bad ideas early, before any changes are made
 
-**Instead of:**
+---
+
+## Principle 4: Execute One Step at a Time
+
+**After planning, don't ask Claude to do everything at once.**
+
+Execute one step, review the result, then move to the next. This gives you control and lets you course-correct.
+
+**The pattern:**
 ```
-Reorganize my doc, fix the typos, and add a summary at the end
+You: Let's do step 1 — create the subfolders
+
+Claude: [Creates subfolders, shows what it did]
+
+You: Good. Now step 2 — rename the files
+
+Claude: [Renames files, shows what it did]
+
+You: Actually, I don't like that naming format. Let's try...
 ```
 
-**Try:**
-```
-Let's reorganize the doc first. Can you show me a new outline?
-```
+**Why this matters:**
+- You can catch mistakes early
+- You can change direction without undoing a lot of work
+- You learn how Claude works by seeing each step
 
-Then after that's done:
-```
-Now let's fix any typos
-```
+**For beginners:** Do things manually step-by-step at first. This helps you understand Claude's behavior. You can let Claude do more autonomously once you're comfortable.
 
-## Principle 3: Teach Claude Your Preferences with CLAUDE.md
+---
+
+## Principle 5: Teach Claude Your Preferences with CLAUDE.md
 
 **What is CLAUDE.md?**
 A file where you write instructions for Claude. Claude reads it at the start of every session and follows those rules.
@@ -67,7 +140,9 @@ Instead of repeating yourself every session ("don't use emojis", "always explain
 **How to set it up:**
 See the templates folder for starter files you can customize.
 
-## Principle 4: Use SESSION_LOG for Continuity
+---
+
+## Principle 6: Use SESSION_LOG for Continuity
 
 **The problem:**
 Claude Code doesn't automatically remember previous sessions. You might have to re-explain context each time.
@@ -90,7 +165,9 @@ You: Read SESSION_LOG.md to catch up on where we left off
 Claude: [Reads the log and has context]
 ```
 
-## Principle 5: Claude Code vs Claude.ai — When to Use Which
+---
+
+## Principle 7: Claude Code vs Claude.ai — When to Use Which
 
 | Use Claude Code when... | Use Claude.ai when... |
 |------------------------|----------------------|
@@ -102,7 +179,9 @@ Claude: [Reads the log and has context]
 
 **Rule of thumb:** If you'd be copy-pasting between Claude.ai and your files, use Claude Code instead.
 
-## Principle 6: Be Specific About What You Want
+---
+
+## Principle 8: Be Specific About What You Want
 
 **Vague requests lead to mismatched results.**
 
@@ -126,7 +205,9 @@ Organize this
 Group these findings by theme, with the most common themes first
 ```
 
-## Principle 7: Don't Hesitate to Say "No" or "Stop"
+---
+
+## Principle 9: Don't Hesitate to Say "No" or "Stop"
 
 Claude won't be offended. It's a tool.
 
@@ -140,7 +221,9 @@ Claude won't be offended. It's a tool.
 - "Undo that and let's go back to what we had"
 - "Wait, can you explain what you're about to do?"
 
-## Principle 8: Review Changes Before Approving
+---
+
+## Principle 10: Review Changes Before Approving
 
 Claude will show you "diffs" — comparisons between old and new content. Take a moment to actually read them.
 
@@ -153,6 +236,8 @@ Claude will show you "diffs" — comparisons between old and new content. Take a
 ```
 I approve the first change but not the second one
 ```
+
+---
 
 ## Common Mistakes to Avoid
 

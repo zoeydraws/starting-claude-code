@@ -18,12 +18,16 @@ You type:
 
 Same result, much faster.
 
+---
+
 ## Built-in vs Custom Commands
 
 | Type | What It Is | Examples |
 |------|-----------|----------|
 | Built-in | Commands that come with Claude Code | `/help`, `/clear`, `/exit` |
 | Custom | Commands you create in CLAUDE.md | `/commit`, `/review-session` |
+
+---
 
 ## Built-in Commands
 
@@ -35,6 +39,8 @@ These work out of the box:
 | `/clear` | Clears conversation history, starts fresh |
 | `/exit` | Closes Claude Code |
 | `/compact` | Summarizes conversation to save space |
+
+---
 
 ## Custom Commands (The Powerful Part)
 
@@ -79,6 +85,8 @@ Now at the end of each work session:
 
 Claude handles the documentation automatically.
 
+---
+
 ## Creating Your Own Commands
 
 ### Step 1: Identify Repetitive Requests
@@ -119,6 +127,8 @@ Add a section describing the shortcut:
 /summarize-for-execs research-findings.md
 ```
 
+---
+
 ## Commands for UX/Design Work
 
 Here are some useful commands to consider:
@@ -155,6 +165,8 @@ Here are some useful commands to consider:
   implications and recommendations, not methodology.
 ```
 
+---
+
 ## Tips for Good Commands
 
 **Be specific about output format:**
@@ -176,6 +188,8 @@ Show me the proposed changes before making them
 If no issues are found, just say "No issues found"
 instead of listing what you checked
 ```
+
+---
 
 ## Where Commands Live
 
