@@ -58,8 +58,22 @@ This is called the "command line" or "prompt". It's waiting for you to type some
 
 ## Step 4: Install Claude Code
 
+There are two ways to install Claude Code. Pick whichever feels easier for you.
+
+### Option 1: Install via VS Code Extension (Recommended)
+
 **What we're doing:**
-Running a command that downloads and installs Claude Code automatically.
+Installing Claude Code as a VS Code extension — just like installing any other extension.
+
+**How to install:**
+1. In VS Code, click the **Extensions** icon in the left sidebar (it looks like four squares)
+2. Search for "Claude Code"
+3. Click **Install** on the official Anthropic extension
+4. Wait for the installation to complete
+
+### Option 2: Install via Terminal
+
+If the extension doesn't work for you, or you prefer using the terminal, you can install Claude Code with a command.
 
 **Type this command in the Terminal and press Enter:**
 ```
@@ -78,12 +92,23 @@ npm is a tool that installs programs. If you see an error like `command not foun
 
 ## Step 5: Start Claude Code
 
-**Type this and press Enter:**
+How you start Claude Code depends on how you installed it.
+
+### Option 1: Click the Claude Icon (Extension Install)
+
+If you installed via the VS Code extension, look for the **Claude icon** in the sidebar (left or right side, depending on your VS Code layout). Click it to open Claude Code.
+
+### Option 2: Type `claude` in Terminal (Terminal Install)
+
+If you installed via terminal, type this and press Enter:
 ```
 claude
 ```
 
-**What you'll see:**
+---
+
+**What you'll see (both options):**
+
 Claude Code will start and ask you to log in. It will show something like:
 ```
 Welcome to Claude Code!
