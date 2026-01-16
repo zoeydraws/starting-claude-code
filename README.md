@@ -1,6 +1,6 @@
 # Starting Claude Code
 
-A beginner-friendly guide for UX researchers and Design Managers who want to use Claude Code — even if you've never touched a terminal before.
+A beginner guide to use Claude Code. If you want advanced, find Pras.
 
 ## What Is Claude Code?
 
@@ -44,4 +44,4 @@ You'll need:
 - About 20 minutes for initial setup
 - An Anthropic account (you can create one during setup)
 
-No coding experience required. Seriously.
+Some coding required, but you can learn as you go.
