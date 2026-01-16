@@ -106,23 +106,20 @@ Be specific. Include:
 - What format you want
 - Whether to ask for confirmation or just do it
 
-### Step 3: Add to CLAUDE.md
+### Step 3: Ask Claude to Add It
 
-Add a section describing the shortcut:
+Tell Claude what you want the command to do:
 
-```markdown
-## Custom Commands
-
-- **"/summarize-for-execs"**: Read the specified document and create
-  a 3-bullet executive summary. Focus on decisions needed and
-  recommendations. Keep it under 100 words.
-
-- **"/format-check"**: Review the specified file for:
-  - Consistent heading levels
-  - Proper markdown formatting
-  - Notion compatibility (no horizontal rules)
-  Report issues as a checklist.
 ```
+You: Add a /summarize-for-execs command to my global CLAUDE.md.
+     It should read the specified document and create a 3-bullet
+     executive summary. Focus on decisions needed and recommendations.
+     Keep it under 100 words.
+
+Claude: [Adds the command to your CLAUDE.md file]
+```
+
+Claude will write the properly formatted entry for you — you don't need to know the exact syntax.
 
 ### Step 4: Use It
 
@@ -134,38 +131,36 @@ Add a section describing the shortcut:
 
 ## Commands for UX/Design Work
 
-Here are some useful commands to consider:
+Here are some useful commands you can ask Claude to create:
 
 ### For Research Synthesis
 
-```markdown
-- **"/extract-quotes"**: Read the specified transcript and pull out
-  notable quotes. Format as: "Quote text" — **Participant role**
+```
+Add a /extract-quotes command that reads a transcript and pulls out
+notable quotes. Format each as: "Quote text" — Participant role
 ```
 
 ### For Documentation
 
-```markdown
-- **"/update-log"**: Add an entry to SESSION_LOG.md with today's date,
-  what we accomplished, decisions made, and next steps.
+```
+Add a /update-log command that adds an entry to SESSION_LOG.md with
+today's date, what we accomplished, decisions made, and next steps.
 ```
 
 ### For Review
 
-```markdown
-- **"/notion-check"**: Review the file for Notion compatibility:
-  - No horizontal rules (---)
-  - No ASCII diagrams
-  - Tables are okay
-  Flag any issues found.
+```
+Add a /notion-check command that reviews a file for Notion compatibility.
+Check for: no horizontal rules, no ASCII diagrams, tables are okay.
+Flag any issues found.
 ```
 
 ### For Handoff
 
-```markdown
-- **"/stakeholder-summary"**: Create a non-technical summary of
-  [document] suitable for sharing with leadership. Focus on
-  implications and recommendations, not methodology.
+```
+Add a /stakeholder-summary command that creates a non-technical summary
+suitable for leadership. Focus on implications and recommendations,
+not methodology.
 ```
 
 ---
@@ -207,9 +202,9 @@ Project commands override global ones if they have the same name.
 
 ## Quick Start
 
-1. Open your global CLAUDE.md (or create it at `~/.claude/CLAUDE.md`)
-2. Add one simple command (like `/commit`)
-3. Test it in Claude Code
-4. Add more as you discover repeated workflows
+1. Think of something you ask Claude to do repeatedly
+2. Tell Claude: "Add a /[name] command to my global CLAUDE.md that [does X]"
+3. Test it by typing `/[name]` in Claude Code
+4. Ask Claude to add more as you discover repeated workflows
 
-The templates folder has a starter file with common commands already defined.
+The templates folder has examples of common commands to give you ideas.
