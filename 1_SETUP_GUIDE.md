@@ -103,11 +103,11 @@ Follow the prompts to:
 
 Once authenticated, you'll see Claude's prompt ready for input.
 
-**You're ready to use Claude Code!** The remaining steps are optional but useful. Head to [2_FIRST_SESSION.md](2_FIRST_SESSION.md) when you're ready.
+**You're ready to use Claude Code!** Head to [2_FIRST_SESSION.md](2_FIRST_SESSION.md) when you're ready. The bonus sections below are optional but useful.
 
 ---
 
-## Step 5: Keep Personal Files Out of Git
+## Bonus 1: Keep Personal Files Out of Git
 
 **What is .gitignore?**
 A file that tells Git "don't track these files." Useful for personal notes, local config, or anything you don't want shared when you push to GitHub.
@@ -138,7 +138,7 @@ Remove SESSION_LOG.md from git tracking but keep the file
 
 ---
 
-## Step 6: Set Up GitHub + Vercel for Auto-Deploy
+## Bonus 2: Set Up GitHub + Vercel for Auto-Deploy
 
 **What is this?**
 If you're building a website or app, you can connect your project to GitHub and Vercel so that every time you commit, your site automatically updates.
