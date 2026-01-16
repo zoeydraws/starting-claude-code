@@ -4,6 +4,30 @@ Work timeline for the Starting Claude guide project. Newest entries at top.
 
 ---
 
+## 2026-01-16 - Added Powerful Commands Safety Section
+
+**Changes:**
+- Added new section 4: "Be Careful with Powerful Commands" to 3_WORKFLOW_HABITS.md
+  - Table of risky patterns: `sudo`, `rm -rf`, `git push --force`, `chmod`/`chown`, `npm install -g`
+  - Explains what each does and why to be careful
+  - Reassurance that Claude asks permission, but knowing patterns helps
+- Renumbered sections 5-10 (was 4-9)
+- Updated Quick Reference table with new habit
+
+**Decisions:**
+- Placed after "Execute One Step at a Time" since it's about being careful during execution
+- Kept it simple — just a table of patterns to watch for, not exhaustive
+
+**Current State:**
+- Working: 10 habits in 3_WORKFLOW_HABITS.md, pushed to GitHub
+- Guide now covers command safety for beginners
+
+**Next Steps:**
+- Test guide with beginners
+- Consider screenshots for key steps
+
+---
+
 ## 2026-01-16 - Added Habit 8 and Language Tweaks
 
 **Changes:**
