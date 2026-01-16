@@ -4,6 +4,63 @@ Work timeline for the Starting Claude guide project. Newest entries at top.
 
 ---
 
+## 2026-01-16 - Added Habit 8 and Language Tweaks
+
+**Changes:**
+- Added Habit 8: "Control What Claude Sees" to 3_WORKFLOW_HABITS.md
+  - Using VS Code selections to focus Claude on specific lines
+  - Closing sensitive files (.env, API keys) before starting Claude
+- Updated CLAUDE.md language: "you write instructions" → "ask Claude to add rules"
+  - Line 104: Added "You can ask Claude to add rules to this file for you"
+  - Line 114: Changed "you write it once" → "you tell Claude once to add it"
+- Updated Quick Reference table to include new habit
+
+**Decisions:**
+- Frame CLAUDE.md as something Claude updates for you (beginner-friendly)
+- Security hygiene (closing secret files) belongs in workflow habits
+
+**Current State:**
+- Working: 8 habits in 3_WORKFLOW_HABITS.md, all updated
+- Not yet committed to GitHub
+
+**Next Steps:**
+- Commit and push all changes
+- Test guide with beginners
+- Consider screenshots
+
+---
+
+## 2026-01-16 - Major Restructure: Habits vs Output
+
+**Changes:**
+- Split 3_WORKING_PRINCIPLES.md into two files:
+  - 3_WORKFLOW_HABITS.md (7 habits) — operational hygiene
+  - 4_GETTING_GOOD_OUTPUT.md (9 techniques) — prompting quality
+- Added 5 new prompting principles:
+  - Give Context First
+  - Tell Claude Who It's For
+  - Make Claude Ask Questions
+  - Make Claude Do Everything
+  - Iterate, Don't Start Over
+- Renamed 4_SLASH_COMMANDS.md → 5_SLASH_COMMANDS.md
+- Updated all cross-references in README, CLAUDE.md, 2_FIRST_SESSION.md
+
+**Decisions:**
+- Split content by purpose: "habits" = daily hygiene, "output" = quality techniques
+- CLAUDE.md setup and Claude Code vs Claude.ai stay in Workflow Habits (operational)
+- New prompting principles focus on making Claude work harder for you
+
+**Current State:**
+- Working: 9 files total, restructured and all references updated
+- Not yet committed to GitHub
+
+**Next Steps:**
+- Commit and push restructure
+- Test guide with beginners
+- Consider screenshots
+
+---
+
 ## 2026-01-16 - Added Context Management Principle
 
 **Changes:**

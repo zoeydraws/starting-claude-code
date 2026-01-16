@@ -13,8 +13,9 @@ Beginner-friendly guide for getting started with Claude Code, targeted at UX fol
 ├── README.md                    # Overview and navigation
 ├── 1_SETUP_GUIDE.md             # VS Code + installation steps
 ├── 2_FIRST_SESSION.md           # First 15 minutes walkthrough
-├── 3_WORKING_PRINCIPLES.md      # 10 principles for working with Claude
-├── 4_SLASH_COMMANDS.md          # Custom shortcuts explained
+├── 3_WORKFLOW_HABITS.md         # Day-to-day operational habits
+├── 4_GETTING_GOOD_OUTPUT.md     # Prompting and quality techniques
+├── 5_SLASH_COMMANDS.md          # Custom shortcuts explained
 ├── templates/
 │   ├── STARTER_GLOBAL_CLAUDE.md
 │   ├── STARTER_PROJECT_CLAUDE.md
@@ -42,3 +43,4 @@ git config user.email "zoeydraws@gmail.com"
 - 2026-01-16: VS Code terminal approach (not standalone Terminal) — easier for non-technical users who already use VS Code for markdown
 - 2026-01-16: Homebrew for Node permissions instead of sudo — safer for beginners
 - 2026-01-16: Split "one thing at a time" into 3 principles (phases → plan → execute) — clearer mental model
+- 2026-01-16: Split content into Workflow Habits (operational hygiene) vs Getting Good Output (prompting quality) — clearer organization by purpose

@@ -145,7 +145,7 @@ You can:
 - Just close the Terminal window
 - Press `Ctrl + C` twice
 
-Your conversation doesn't automatically save, but your files do. Next session, Claude won't remember this conversation unless you set up a SESSION_LOG (covered in [3_WORKING_PRINCIPLES.md](3_WORKING_PRINCIPLES.md)).
+Your conversation doesn't automatically save, but your files do. Next session, Claude won't remember this conversation unless you set up a SESSION_LOG (covered in [3_WORKFLOW_HABITS.md](3_WORKFLOW_HABITS.md)).
 
 ---
 
