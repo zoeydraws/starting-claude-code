@@ -12,13 +12,14 @@ Asking Claude to "build me a whole app" or "do this entire project" leads to mes
 
 **Rule of thumb:** If the task would take you hours to do manually, break it into phases first.
 
-| Instead of... | Try... |
-|---------------|--------|
-| "Build me a portfolio website" | "Let's plan out a portfolio site in phases. What are the key sections I need?" |
-| "Analyze all 20 transcripts and write a report" | "Let's start with 3 transcripts. What themes do you notice?" |
-| "Create the whole presentation" | "Help me outline the presentation first, then we'll build each section" |
+| Instead of...                                   | Try...                                                                         |
+| ----------------------------------------------- | ------------------------------------------------------------------------------ |
+| "Build me a portfolio website"                  | "Let's plan out a portfolio site in phases. What are the key sections I need?" |
+| "Analyze all 20 transcripts and write a report" | "Let's start with 3 transcripts. What themes do you notice?"                   |
+| "Create the whole presentation"                 | "Help me outline the presentation first, then we'll build each section"        |
 
 **Example:**
+
 ```
 You: I need to reorganize all my research findings into a final report
 
@@ -37,17 +38,19 @@ Which phase should we start with?
 
 **Claude Code has two modes:**
 
-| Mode | What It Does | How to Enter |
-|------|--------------|--------------|
-| Plan mode | Claude researches and proposes an approach, but doesn't make changes | `Shift + Tab` to toggle |
-| Execute mode | Claude makes actual changes to your files | Default mode |
+| Mode         | What It Does                                                         | How to Enter            |
+| ------------ | -------------------------------------------------------------------- | ----------------------- |
+| Plan mode    | Claude researches and proposes an approach, but doesn't make changes | `Shift + Tab` to toggle |
+| Execute mode | Claude makes actual changes to your files                            | Default mode            |
 
 **When to use plan mode:**
+
 - Starting a new phase of work
 - Unfamiliar task where you want to see the approach first
 - Anything that touches multiple files
 
 **Example:**
+
 ```
 You: [Shift + Tab to enter plan mode]
 You: How should we reorganize the transcripts folder?
@@ -65,6 +68,7 @@ You: Ok let's do step 1
 ```
 
 **Why this matters:**
+
 - You see Claude's thinking before it acts
 - You catch bad ideas early, before any changes are made
 
@@ -77,6 +81,7 @@ You: Ok let's do step 1
 Execute one step, review the result, then move to the next. This gives you control and lets you course-correct.
 
 **The pattern:**
+
 ```
 You: Let's do step 1 — create the subfolders
 
@@ -90,6 +95,7 @@ You: Actually, I don't like that naming format. Let's try...
 ```
 
 **Why this matters:**
+
 - You can catch mistakes early
 - You can change direction without undoing a lot of work
 - You learn how Claude works by seeing each step
@@ -98,7 +104,31 @@ You: Actually, I don't like that naming format. Let's try...
 
 ---
 
-## 4. Set Up CLAUDE.md for Your Preferences
+## 4. Be Careful with Powerful Commands
+
+**Claude sometimes suggests commands that can make big changes to your system.**
+
+Most commands are safe, but a few can delete files permanently, change system settings, or do things that are hard to undo. You don't need to memorize these — just know what to watch for.
+
+**When you see these patterns, ask Claude to explain before running:**
+
+| Pattern            | What it does              | Why to be careful                                  |
+| ------------------ | ------------------------- | -------------------------------------------------- |
+| `sudo ...`         | Runs as administrator     | Can modify system files, install software globally |
+| `rm -rf ...`       | Deletes files/folders     | Permanent deletion, no trash, no undo              |
+| `git push --force` | Overwrites remote history | Can delete other people's work                     |
+| `chmod` / `chown`  | Changes file permissions  | Can lock you out of files or expose them           |
+| `npm install -g`   | Installs globally         | Affects your whole system, not just this project   |
+
+```
+
+**Good news:** Claude Code asks for permission before running commands, so you always have a chance to say no. But knowing these patterns helps you ask the right questions.
+
+**Rule of thumb:** If a command looks unfamiliar or has flags you don't recognize, ask Claude to explain it in plain English first.
+
+---
+
+## 5. Set Up CLAUDE.md for Your Preferences
 
 **What is CLAUDE.md?**
 A file containing instructions for Claude. Claude reads it at the start of every session and follows those rules. You can ask Claude to add rules to this file for you.
@@ -118,7 +148,7 @@ See the templates folder for starter files you can customize.
 
 ---
 
-## 5. Use SESSION_LOG for Continuity
+## 6. Use SESSION_LOG for Continuity
 
 **The problem:**
 Claude Code doesn't automatically remember previous sessions. You might have to re-explain context each time.
@@ -128,22 +158,26 @@ Keep a SESSION_LOG.md file in your project. At the end of each session, ask Clau
 
 **The pattern:**
 ```
+
 End of session:
 You: Update SESSION_LOG.md with what we did today
 
 Claude: [Adds entry with date, changes, decisions, next steps]
+
 ```
 
 ```
+
 Start of next session:
 You: Read SESSION_LOG.md to catch up on where we left off
 
 Claude: [Reads the log and has context]
+
 ```
 
 ---
 
-## 6. Clear Context After Each Task
+## 7. Clear Context After Each Task
 
 **The problem:**
 As your conversation grows, Claude has to "compact" (summarize) older context to make room for new work. This can lose details and slow things down.
@@ -153,10 +187,12 @@ Clear context after completing each task. This gives Claude a fresh start with f
 
 **The workflow:**
 ```
+
 1. Complete your task
-2. /review-session     → Claude updates SESSION_LOG.md
-3. commit              → Push changes if using version control (optional)
-4. /clear              → Clear conversation, fresh context
+2. /review-session → Claude updates SESSION_LOG.md
+3. commit → Push changes if using version control (optional)
+4. /clear → Clear conversation, fresh context
+
 ```
 
 **Why this matters:**
@@ -166,6 +202,7 @@ Clear context after completing each task. This gives Claude a fresh start with f
 
 **Example:**
 ```
+
 You: [Finish reorganizing the research docs]
 
 You: /review-session
@@ -179,11 +216,12 @@ Claude: [Commits and pushes changes]
 You: /clear
 
 [Fresh context — ready for next task]
+
 ```
 
 ---
 
-## 7. Claude Code vs Claude.ai — When to Use Which
+## 8. Claude Code vs Claude.ai — When to Use Which
 
 | Use Claude Code when... | Use Claude.ai when... |
 |------------------------|----------------------|
@@ -197,7 +235,7 @@ You: /clear
 
 ---
 
-## 8. Control What Claude Sees
+## 9. Control What Claude Sees
 
 **Claude reads your open files and selections in VS Code.** This is powerful but requires awareness.
 
@@ -209,9 +247,11 @@ When you select lines in VS Code before prompting, Claude sees that selection as
 
 **Example:**
 ```
+
 1. Select lines 45-60 in your file
 2. Type: "Simplify this section"
 3. Claude knows exactly which lines you mean
+
 ```
 
 **Close sensitive files before starting Claude:**
@@ -227,7 +267,7 @@ Claude can see the contents of open files. Before starting a Claude session:
 
 ---
 
-## 9. Paste Images for Visual Context
+## 10. Paste Images for Visual Context
 
 **Claude can see images you paste into the terminal.**
 
@@ -240,10 +280,12 @@ This is useful for quick UI or prototype fixes. Instead of describing what's wro
 
 **Example:**
 ```
+
 [Paste screenshot of a button that looks off]
 You: The spacing on this button looks wrong. Can you fix it?
 
 Claude: I can see the button has uneven padding. I'll adjust the CSS...
+
 ```
 
 **Good for:**
@@ -261,6 +303,7 @@ Claude: I can see the button has uneven padding. I'll adjust the CSS...
 | Break into phases | Before starting big work |
 | Plan mode | Before executing unfamiliar tasks |
 | One step at a time | During execution |
+| Watch for powerful commands | When Claude suggests unfamiliar commands |
 | CLAUDE.md | Set up once, update as needed |
 | SESSION_LOG | End of each session |
 | Clear context | After completing a task |
@@ -273,3 +316,4 @@ Claude: I can see the button has uneven padding. I'll adjust the CSS...
 
 - Set up your CLAUDE.md files using the templates in `templates/`
 - Learn how to get better output in [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md)
+```
