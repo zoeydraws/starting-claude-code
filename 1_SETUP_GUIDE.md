@@ -35,28 +35,7 @@ Your folder's files appear in the left sidebar. You can click any file to view o
 
 ---
 
-## Step 3: Open the Terminal in VS Code
-
-**What is the Terminal?**
-The Terminal is where you type commands instead of clicking buttons. VS Code has one built in, so you don't need to open a separate app.
-
-**How to open it:**
-- Press `Cmd + J`
-- Or go to `View` → `Terminal`
-
-**What you'll see:**
-A panel appears at the bottom of VS Code with text like:
-```
-yourname@MacBook project-folder %
-```
-
-This is called the "command line" or "prompt". It's waiting for you to type something.
-
-**Important:** The terminal automatically starts in your project folder (the one you opened in Step 2). This saves you from navigating manually.
-
----
-
-## Step 4: Install Claude Code
+## Step 3: Install Claude Code
 
 There are two ways to install Claude Code. Pick whichever feels easier for you.
 
@@ -75,7 +54,9 @@ Installing Claude Code as a VS Code extension — just like installing any other
 
 If the extension doesn't work for you, or you prefer using the terminal, you can install Claude Code with a command.
 
-**Type this command in the Terminal and press Enter:**
+**First, open the Terminal:** Press `Cmd + J` or go to `View` → `Terminal`
+
+**Type this command and press Enter:**
 ```
 npm install -g @anthropic-ai/claude-code
 ```
@@ -90,7 +71,7 @@ npm is a tool that installs programs. If you see an error like `command not foun
 
 ---
 
-## Step 5: Start Claude Code
+## Step 4: Start Claude Code
 
 How you start Claude Code depends on how you installed it.
 
@@ -100,7 +81,7 @@ If you installed via the VS Code extension, look for the **Claude icon** in the 
 
 ### Option 2: Type `claude` in Terminal (Terminal Install)
 
-If you installed via terminal, type this and press Enter:
+If you installed via terminal, open the Terminal (`Cmd + J` or `View` → `Terminal`) and type:
 ```
 claude
 ```
@@ -126,7 +107,7 @@ Once authenticated, you'll see Claude's prompt ready for input.
 
 ---
 
-## Step 6: Keep Personal Files Out of Git
+## Step 5: Keep Personal Files Out of Git
 
 **What is .gitignore?**
 A file that tells Git "don't track these files." Useful for personal notes, local config, or anything you don't want shared when you push to GitHub.
@@ -157,7 +138,7 @@ Remove SESSION_LOG.md from git tracking but keep the file
 
 ---
 
-## Step 7: Set Up GitHub + Vercel for Auto-Deploy
+## Step 6: Set Up GitHub + Vercel for Auto-Deploy
 
 **What is this?**
 If you're building a website or app, you can connect your project to GitHub and Vercel so that every time you commit, your site automatically updates.
