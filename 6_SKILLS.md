@@ -4,24 +4,24 @@
 
 ---
 
-## Slash Commands vs Skills
+## Shortcuts vs Skills
 
-In the previous guide, we covered [slash commands](5_SLASH_COMMANDS.md) — shortcuts you type like `/commit` that trigger pre-written prompts.
+There are two ways to automate Claude's behavior:
 
-**Skills are the next level up.**
+|                        | Shortcuts                          | Skills                                      |
+| ---------------------- | ---------------------------------- | ------------------------------------------- |
+| **What it is**         | Plain English rule                 | SKILL.md file with structured instructions  |
+| **Where it lives**     | CLAUDE.md                          | `.claude/skills/` folder                    |
+| **How it's triggered** | Keywords in conversation           | `/name` (explicit) OR auto by context       |
+| **When to use**        | Simple "when X, do Y" rules        | Multi-step workflows, checklists, templates |
 
-|                           | Slash Commands                 | Skills                                                  |
-| ------------------------- | ------------------------------ | ------------------------------------------------------- |
-| **How they're triggered** | You type `/command` explicitly | Claude triggers them **automatically** based on context |
-| **Where they live**       | Instructions in CLAUDE.md      | SKILL.md files in a `skills/` folder                    |
-| **When to use**           | Repetitive tasks you initiate  | Patterns Claude should always follow                    |
+**Examples:**
 
-**Example:**
+- **Shortcut:** In CLAUDE.md you write `"commit" shortcut: When user says "commit", run git add, commit, and push` → Claude follows this when you say "commit"
+- **Skill (user-invoked):** You type `/commit` → Claude loads the commit skill
+- **Skill (auto-triggered):** You say "review this component" → Claude automatically applies your code-review skill
 
-- Slash command: You type `/commit` → Claude commits your code
-- Skill: You say "review this component" → Claude automatically applies your code-review skill's checklist without you asking
-
-Think of slash commands as buttons you press. Skills are more like teaching Claude habits — once installed, Claude uses them whenever relevant.
+**Rule of thumb:** If it fits in one sentence, use a shortcut. If it needs a checklist or template, make it a skill.
 
 ### Why This Matters: Saving Tokens
 
@@ -35,6 +35,20 @@ Your CLAUDE.md file is loaded into Claude's memory for **every conversation**. I
 **Example:** You have detailed instructions for creating UX research reports. Instead of keeping this in CLAUDE.md (loaded every time), move it to a `ux-research-report` skill. Claude only loads those instructions when you're actually working on a report.
 
 This keeps your context lean and saves tokens for what actually matters in each conversation.
+
+### How to Decide: 4 Questions
+
+When choosing between a shortcut and a skill, ask:
+
+1. **Token efficiency** — Is this needed every session? If not, why pay the context cost? Move it to a skill.
+
+2. **Complexity** — Does it have multiple steps? Multi-step workflows (git add → commit → push, fetch → merge → handle conflicts) benefit from detailed, dedicated skill files.
+
+3. **Discoverability** — Should others find this easily? Skills appear via `/help`. Shortcuts are hidden in CLAUDE.md.
+
+4. **Maintainability** — Will this evolve? Easier to update one skill file than hunt through CLAUDE.md.
+
+**If you answer "yes" to 2+ questions → make it a skill.**
 
 ---
 
@@ -236,21 +250,15 @@ These are particularly relevant if you're doing product management, UX research,
 
 ---
 
-## When to Use Skills vs Slash Commands
+## When to Use Shortcuts vs Skills
 
-| Use Case                             | Better Option         |
-| ------------------------------------ | --------------------- |
-| One-off task you trigger manually    | Slash command         |
-| Pattern Claude should always follow  | Skill                 |
-| Quick shortcut (commit, push, etc.)  | Slash command         |
-| Complex workflow with multiple steps | Skill                 |
-| Shared team standards                | Skill (project-level) |
-| Personal preference                  | Either works          |
-
-You can use both together. For example:
-
-- **Skill:** Teaches Claude your code review standards
-- **Slash command:** `/review` triggers a review using those standards
+| Use Case                                | Better Option |
+| --------------------------------------- | ------------- |
+| Simple "when I say X, do Y" rule        | Shortcut      |
+| Multi-step workflow                     | Skill         |
+| Detailed checklist or template          | Skill         |
+| Pattern Claude should auto-apply        | Skill         |
+| Shared team standards                   | Skill         |
 
 ---
 

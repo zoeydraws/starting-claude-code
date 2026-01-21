@@ -183,5 +183,5 @@ Claude will match the pattern.
 
 ## Next Steps
 
-- Learn about slash commands in [5_SLASH_COMMANDS.md](5_SLASH_COMMANDS.md)
+- Learn about shortcuts in [5_SHORTCUTS.md](5_SHORTCUTS.md)
 - Set up your CLAUDE.md with prompting preferences

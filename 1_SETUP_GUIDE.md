@@ -170,7 +170,7 @@ Claude: [pushes to GitHub]
 Vercel: [auto-deploys your site]
 ```
 
-See [5_SLASH_COMMANDS.md](5_SLASH_COMMANDS.md) for more on the `/commit` shortcut.
+See [5_SHORTCUTS.md](5_SHORTCUTS.md) for more on shortcuts and [6_SKILLS.md](6_SKILLS.md) for `/commit`.
 
 ---
 
