@@ -56,13 +56,6 @@ WHEN TO USE THIS:
 - [Example: Use sentence case for headings, not Title Case]
 - [Example: File names use kebab-case like `my-file-name.md`]
 
-## Project-Specific Commands
-
-<!-- Shortcuts that only make sense for this project -->
-
-- **"/update-status"**: [What should this command do?]
-- **"/summarize-findings"**: [What should this command do?]
-
 ## Key Decisions
 
 <!-- Record important decisions so you remember why things are the way they are -->

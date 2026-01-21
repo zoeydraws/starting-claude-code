@@ -42,9 +42,6 @@ Claude reads this file at the start of every session.
   stage all changes, write a descriptive commit message, and push.
   No need to ask for confirmation.
 
-- **"/review-session"**: At the end of a session, summarize what we did,
-  note any decisions made, and suggest what to work on next.
-
 ## Things to Avoid
 
 <!-- What should Claude NOT do? -->

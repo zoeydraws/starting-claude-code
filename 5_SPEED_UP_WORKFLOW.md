@@ -21,13 +21,14 @@ These work out of the box:
 
 Skills are multi-step workflows you trigger by typing `/name`. Here are three essential ones to get you started.
 
-### The Three Starter Skills
+### Starter Skills
 
 | Skill             | What It Does                                    |
 | ----------------- | ----------------------------------------------- |
 | `/commit`         | Stage all changes, write commit message, push   |
 | `/pull-main`      | Fetch and merge main branch into current branch |
 | `/review-session` | Summarize session and update SESSION_LOG.md     |
+| `/maintain-docs`  | Review and condense docs to manage context size |
 
 ### How to Install Them
 
