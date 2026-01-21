@@ -250,18 +250,6 @@ These are particularly relevant if you're doing product management, UX research,
 
 ---
 
-## When to Use Shortcuts vs Skills
-
-| Use Case                                | Better Option |
-| --------------------------------------- | ------------- |
-| Simple "when I say X, do Y" rule        | Shortcut      |
-| Multi-step workflow                     | Skill         |
-| Detailed checklist or template          | Skill         |
-| Pattern Claude should auto-apply        | Skill         |
-| Shared team standards                   | Skill         |
-
----
-
 ## Next Steps
 
 1. Check what skills you have: `ls ~/.claude/skills/`
