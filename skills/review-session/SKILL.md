@@ -1,4 +1,5 @@
 ---
+name: review-session
 description: Summarize the session and update SESSION_LOG.md
 ---
 

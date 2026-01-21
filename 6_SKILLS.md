@@ -4,6 +4,19 @@
 
 ---
 
+## Commands → Skills (What Changed)
+
+If you see older tutorials mentioning `.claude/commands/`, that's the legacy approach. **Custom slash commands have been merged into skills.**
+
+- Both `.claude/commands/review.md` and `.claude/skills/review/SKILL.md` create `/review`
+- They work identically
+- Existing `.claude/commands/` files keep working (backward compatible)
+- **Skills are the recommended approach** — they support additional features like auto-triggering and supporting files
+
+This guide uses the skills approach throughout.
+
+---
+
 ## Shortcuts vs Skills
 
 There are two ways to automate Claude's behavior:
@@ -56,7 +69,7 @@ When choosing between a shortcut and a skill, ask:
 
 A Skill is a folder containing a `SKILL.md` file with instructions. The file has two parts:
 
-1. **Frontmatter** — Name and description (tells Claude when to use it)
+1. **Frontmatter** — Metadata that controls how the skill behaves
 2. **Instructions** — What Claude should do
 
 ### Example: A Simple Code Review Skill
@@ -83,6 +96,34 @@ When reviewing code, check for:
 ```
 
 When you ask Claude to review code, it reads the description, recognizes this skill is relevant, and follows the instructions automatically.
+
+### Frontmatter Options
+
+Most skills only need `name` and `description`. Here are additional options for specific needs:
+
+| Option | What It Does | When to Use |
+|--------|--------------|-------------|
+| `name` | Display name (shown in `/help`) | Always include |
+| `description` | When to use this skill | Always include — helps Claude decide when to auto-load |
+| `disable-model-invocation: true` | Only YOU can trigger it (Claude won't auto-load) | Dangerous operations like deploy, delete |
+| `user-invocable: false` | Only CLAUDE can trigger it (hidden from `/` menu) | Background knowledge Claude should apply automatically |
+
+**Example: User-only deploy skill**
+
+```markdown
+---
+name: deploy
+description: Deploy the application to production
+disable-model-invocation: true
+---
+
+Deploy to production:
+1. Run the test suite
+2. Build the application
+3. Push to deployment target
+```
+
+You run `/deploy` explicitly. Claude won't auto-trigger this even if you mention "deploying."
 
 ---
 

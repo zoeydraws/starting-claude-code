@@ -1,6 +1,6 @@
 # Speed Up Your Workflow
 
-Slash commands and shortcuts to save time.
+Skills and shortcuts to save time.
 
 ---
 
@@ -10,20 +10,20 @@ These work out of the box:
 
 | Command    | What It Does                           |
 | ---------- | -------------------------------------- |
-| `/help`    | Shows available commands               |
+| `/help`    | Shows available commands and skills    |
 | `/clear`   | Clears conversation, starts fresh      |
 | `/compact` | Summarizes conversation to save tokens |
 | `/exit`    | Closes Claude Code                     |
 
 ---
 
-## Slash Commands — Quick Setup
+## Skills — Quick Setup
 
-Slash commands are multi-step workflows you trigger by typing `/name`. Here are three essential ones to get you started.
+Skills are multi-step workflows you trigger by typing `/name`. Here are three essential ones to get you started.
 
-### The Three Starter Commands
+### The Three Starter Skills
 
-| Command           | What It Does                                    |
+| Skill             | What It Does                                    |
 | ----------------- | ----------------------------------------------- |
 | `/commit`         | Stage all changes, write commit message, push   |
 | `/pull-main`      | Fetch and merge main branch into current branch |
@@ -33,38 +33,46 @@ Slash commands are multi-step workflows you trigger by typing `/name`. Here are 
 
 **Option A: Ask Claude to create them**
 
-1. Open one of the template files in the [`commands/`](commands/) folder (e.g., `commit.md`)
+1. Open one of the template files in the [`skills/`](skills/) folder (e.g., `commit/SKILL.md`)
 2. Copy the contents
 3. Tell Claude:
 
 ```
-Create a /commit slash command with these instructions:
+Create a /commit skill with these instructions:
 
 [paste the contents here]
 ```
 
-Claude will create the file in `~/.claude/commands/commit.md` for you.
+Claude will create the skill folder at `~/.claude/skills/commit/SKILL.md` for you.
 
 **Option B: Copy the files manually (if you're comfortable with terminal)**
 
 ```bash
-mkdir -p ~/.claude/commands
-cp commands/*.md ~/.claude/commands/
+mkdir -p ~/.claude/skills
+cp -r skills/* ~/.claude/skills/
 ```
 
-### Command File Format
+### Skill File Format
 
-Each command is a `.md` file with a description and instructions:
+Each skill is a folder containing a `SKILL.md` file:
+
+```
+~/.claude/skills/
+└── commit/
+    └── SKILL.md
+```
+
+The `SKILL.md` file has a description and instructions:
 
 ```markdown
 ---
-description: What this command does (shown in /help)
+description: What this skill does (shown in /help)
 ---
 
-Instructions for Claude to follow when you run this command.
+Instructions for Claude to follow when you run this skill.
 ```
 
-See the [`commands/`](commands/) folder for full examples.
+See the [`skills/`](skills/) folder for full examples.
 
 ---
 
@@ -84,7 +92,7 @@ Now typing `shorter` tells Claude to be more concise. Ask Claude to add more sho
 
 ## Quick Reference
 
-| Type          | Where it lives         | When to use           |
-| ------------- | ---------------------- | --------------------- |
-| Slash command | `~/.claude/commands/`  | Multi-step workflow   |
-| Shortcut      | CLAUDE.md              | Simple one-liner rule |
+| Type     | Where it lives       | When to use           |
+| -------- | -------------------- | --------------------- |
+| Skill    | `~/.claude/skills/`  | Multi-step workflow   |
+| Shortcut | CLAUDE.md            | Simple one-liner rule |

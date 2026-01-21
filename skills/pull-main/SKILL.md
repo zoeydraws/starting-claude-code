@@ -1,4 +1,5 @@
 ---
+name: pull-main
 description: Fetch from remote and merge the main branch into current branch
 ---
 

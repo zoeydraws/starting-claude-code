@@ -1,4 +1,5 @@
 ---
+name: commit
 description: Stage all changes, commit with a descriptive message, and push to remote
 ---
 
