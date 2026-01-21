@@ -25,7 +25,8 @@ Same result, much faster.
 | Type | What It Is | Examples |
 |------|-----------|----------|
 | Built-in | Commands that come with Claude Code | `/help`, `/clear`, `/exit` |
-| Custom | Commands you create in CLAUDE.md | `/commit`, `/review-session` |
+| Custom (CLAUDE.md) | Shortcuts you define in CLAUDE.md | `commit`, `review-session` |
+| Custom (commands folder) | Files in `~/.claude/commands/` | `/pull-main`, `/commit` |
 
 ---
 
@@ -46,35 +47,35 @@ These work out of the box:
 
 You define these in your CLAUDE.md file. When you type the command, Claude reads the full instructions from your file.
 
-### Example: The `/commit` Shortcut
+### Example: The `commit` Shortcut
 
 In your global CLAUDE.md, you might have:
 
 ```markdown
 ## Workflow & Communication
 
-- **"commit" shortcut**: When user says "commit" or "/commit",
+- **"commit" shortcut**: When user says "commit",
   stage all changes, commit with a descriptive message, and push
   to remote. No need to ask for confirmation.
 ```
 
-Now whenever you type `/commit` or just "commit", Claude:
+Now whenever you type `commit`, Claude:
 1. Stages your changes
 2. Writes a commit message
 3. Pushes to your repository
 4. All without extra prompts
 
 **Bonus: Auto-deploy to Vercel**
-If you've connected your GitHub repo to Vercel (see [1_SETUP_GUIDE.md](1_SETUP_GUIDE.md#optional-set-up-github--vercel-for-auto-deploy)), every `/commit` automatically triggers a deploy. Your site updates without any extra steps.
+If you've connected your GitHub repo to Vercel (see [1_SETUP_GUIDE.md](1_SETUP_GUIDE.md#optional-set-up-github--vercel-for-auto-deploy)), every `commit` automatically triggers a deploy. Your site updates without any extra steps.
 
-### Example: The `/review-session` Command
+### Example: The `review-session` Shortcut
 
 For tracking work across sessions:
 
 ```markdown
 ## Session Review Process
 
-When user says "/review-session":
+When user says "review-session":
 1. Summarize what we did this session
 2. Note any decisions made
 3. Update SESSION_LOG.md with an entry
@@ -83,7 +84,7 @@ When user says "/review-session":
 
 Now at the end of each work session:
 ```
-/review-session
+review-session
 ```
 
 Claude handles the documentation automatically.
@@ -110,13 +111,20 @@ Be specific. Include:
 
 Tell Claude what you want the command to do:
 
+**For a simple command (CLAUDE.md shortcut):**
 ```
-You: Add a /summarize-for-execs command to my global CLAUDE.md.
+You: Add a "summarize-for-execs" shortcut to my global CLAUDE.md.
      It should read the specified document and create a 3-bullet
      executive summary. Focus on decisions needed and recommendations.
      Keep it under 100 words.
+```
 
-Claude: [Adds the command to your CLAUDE.md file]
+**For a complex command (commands folder):**
+```
+You: Create a /pull-main slash command in my global commands folder.
+     It should fetch from remote and merge the main branch into
+     the current branch. Warn about uncommitted changes and report
+     any merge conflicts.
 ```
 
 Claude will write the properly formatted entry for you — you don't need to know the exact syntax.
@@ -124,7 +132,7 @@ Claude will write the properly formatted entry for you — you don't need to kno
 ### Step 4: Use It
 
 ```
-/summarize-for-execs research-findings.md
+summarize-for-execs research-findings.md
 ```
 
 ---
@@ -189,12 +197,72 @@ instead of listing what you checked
 
 ---
 
+## Two Ways to Create Commands
+
+There are two ways to create custom slash commands:
+
+### Method 1: Shortcut in CLAUDE.md (Quick & Simple)
+
+Add a shortcut entry directly in your CLAUDE.md file:
+
+```markdown
+## Workflow & Communication
+
+- **"commit" shortcut**: When user says "commit", stage all changes,
+  commit with a descriptive message, and push to remote.
+```
+
+**Best for:** Simple commands with short instructions.
+
+### Method 2: Commands Folder (Structured & Detailed)
+
+Create a `.md` file in `~/.claude/commands/`:
+
+```
+~/.claude/commands/pull-main.md
+```
+
+With this format:
+
+```markdown
+---
+description: Fetch from remote and merge the main branch into current branch
+---
+
+Sync current branch with the main branch (develop or main).
+
+## Steps
+
+1. **Fetch latest**: Run `git fetch origin`
+2. **Identify main branch**: Check if `develop` exists, otherwise use `main`
+3. **Merge**: Run `git merge origin/<main-branch>`
+4. **Report result**: Show merge status or list any conflicts
+
+## Important
+
+- If there are merge conflicts, list the conflicting files and stop
+- Do not auto-resolve conflicts - let the user decide
+```
+
+**Best for:** Complex commands with multiple steps, detailed instructions, or important notes.
+
+### Which Should I Use?
+
+| Use CLAUDE.md shortcut when... | Use commands folder when... |
+|-------------------------------|----------------------------|
+| Instructions are 1-3 sentences | Instructions have multiple steps |
+| Simple, quick actions | Complex workflows |
+| You want it alongside other rules | You want a dedicated, readable file |
+
+---
+
 ## Where Commands Live
 
 | Command Type | Where to Define |
 |--------------|-----------------|
 | Personal shortcuts (all projects) | `~/.claude/CLAUDE.md` |
-| Project-specific commands | `[project]/CLAUDE.md` |
+| Personal commands (all projects) | `~/.claude/commands/*.md` |
+| Project-specific commands | `[project]/CLAUDE.md` or `[project]/.claude/commands/*.md` |
 
 Project commands override global ones if they have the same name.
 
@@ -203,8 +271,8 @@ Project commands override global ones if they have the same name.
 ## Quick Start
 
 1. Think of something you ask Claude to do repeatedly
-2. Tell Claude: "Add a /[name] command to my global CLAUDE.md that [does X]"
-3. Test it by typing `/[name]` in Claude Code
+2. Tell Claude: "Add a `[name]` shortcut to my global CLAUDE.md that [does X]"
+3. Test it by typing `[name]` in Claude Code
 4. Ask Claude to add more as you discover repeated workflows
 
 The templates folder has examples of common commands to give you ideas.

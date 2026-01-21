@@ -39,35 +39,39 @@ Your folder's files appear in the left sidebar. You can click any file to view o
 
 There are two ways to install Claude Code. Pick whichever feels easier for you.
 
-### Option 1: Install via VS Code Extension (Recommended)
+### Option 1: Install via Terminal (Recommended)
 
-**What we're doing:**
-Installing Claude Code as a VS Code extension — just like installing any other extension.
+This is the official recommended method. It auto-updates in the background, so you always have the latest version.
+
+**First, open the Terminal:** Press `Cmd + J` or go to `View` → `Terminal`
+
+**Type this command and press Enter:**
+```
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**What's happening?**
+This downloads and runs the official Claude Code installer from Anthropic.
+
+**What you'll see during installation:**
+- Several lines of text scrolling by
+- It might take 1-2 minutes
+- When done, you'll see your prompt again (`yourname@MacBook project-folder %`)
+
+**Verify it worked:**
+```
+claude --version
+```
+
+### Option 2: Install via VS Code Extension
+
+If the terminal method doesn't work for you, you can install Claude Code as a VS Code extension.
 
 **How to install:**
 1. In VS Code, click the **Extensions** icon in the left sidebar (it looks like four squares)
 2. Search for "Claude Code"
 3. Click **Install** on the official Anthropic extension
 4. Wait for the installation to complete
-
-### Option 2: Install via Terminal
-
-If the extension doesn't work for you, or you prefer using the terminal, you can install Claude Code with a command.
-
-**First, open the Terminal:** Press `Cmd + J` or go to `View` → `Terminal`
-
-**Type this command and press Enter:**
-```
-npm install -g @anthropic-ai/claude-code
-```
-
-**Wait, what's npm?**
-npm is a tool that installs programs. If you see an error like `command not found: npm`, you need to install Node.js first. See the Troubleshooting section below.
-
-**What you'll see during installation:**
-- Several lines of text scrolling by
-- It might take 1-2 minutes
-- When done, you'll see your prompt again (`yourname@MacBook project-folder %`)
 
 ---
 
@@ -172,38 +176,41 @@ See [5_SLASH_COMMANDS.md](5_SLASH_COMMANDS.md) for more on the `/commit` shortcu
 
 ## Troubleshooting
 
-### "command not found: npm"
+### "command not found: curl"
 
-You need to install Node.js first:
+This is rare on macOS, but if you see this error:
 
-1. Go to https://nodejs.org
-2. Download the "LTS" version (the one that says "Recommended")
-3. Open the downloaded file and follow the installer
-4. **Important:** Close VS Code completely and reopen it (the terminal needs to refresh)
-5. Open your project folder again, open the Terminal, and try the `npm install` command again
+1. Open **Terminal** (find it in Applications → Utilities)
+2. Install Xcode Command Line Tools:
+   ```
+   xcode-select --install
+   ```
+3. Follow the prompts to install
+4. Try the installation command again
 
-### "permission denied" or "EACCES" errors
+### Installation seems stuck
 
-This usually means Node.js wasn't installed correctly. The easiest fix:
+The installer might be waiting for input. Try:
+1. Press Enter a few times
+2. If still stuck, press `Ctrl + C` to cancel and try again
 
-1. Uninstall Node.js (find it in Applications and drag to Trash)
-2. Install Node using Homebrew instead:
-   - First install Homebrew by pasting this in Terminal:
-     ```
-     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     ```
-   - Then install Node:
-     ```
-     brew install node
-     ```
-3. Close VS Code completely and reopen it
-4. Try the `npm install -g @anthropic-ai/claude-code` command again
+### "permission denied" errors
 
-**What is Homebrew?** It's a popular tool for installing software on macOS. It sets up permissions correctly so you won't hit these errors.
+Try running the installer with sudo (you'll need to enter your Mac password):
+```
+curl -fsSL https://claude.ai/install.sh | sudo bash
+```
 
 ### Claude Code won't start
 
 Make sure you're connected to the internet. Claude Code needs to connect to Anthropic's servers.
+
+### "command not found: claude" after installation
+
+The terminal might not have refreshed. Try:
+1. Close VS Code completely and reopen it
+2. Or type `source ~/.zshrc` (or `source ~/.bashrc`) to refresh your terminal
+3. Try `claude` again
 
 ### Terminal shows wrong folder
 
@@ -212,6 +219,15 @@ If your terminal prompt doesn't show your project folder name, the terminal migh
 ### "I don't know what folder to use"
 
 Start with any folder that has documents you're working on. You can always close Claude Code (`Ctrl + C`) and open VS Code with a different folder.
+
+### Check your installation
+
+Run this command to verify Claude Code is installed correctly:
+```
+claude doctor
+```
+
+This shows your installation type, version, and checks for common issues.
 
 ---
 
