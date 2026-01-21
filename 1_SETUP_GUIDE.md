@@ -170,7 +170,7 @@ Claude: [pushes to GitHub]
 Vercel: [auto-deploys your site]
 ```
 
-See [5_SHORTCUTS.md](5_SHORTCUTS.md) for more on shortcuts and [6_SKILLS.md](6_SKILLS.md) for `/commit`.
+See [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md) for more on shortcuts and [6_SKILLS.md](6_SKILLS.md) for `/commit`.
 
 ---
 

@@ -1,6 +1,6 @@
-# Shortcuts
+# Speed Up Your Workflow
 
-Speed up your workflow with slash commands and shortcuts.
+Slash commands and shortcuts to save time.
 
 ---
 

@@ -173,7 +173,7 @@ Claude: [Reads the log and has context]
 
 ```
 
-**Tip:** You can set up a `/review-session` slash command to automate this. See [5_SHORTCUTS.md](5_SHORTCUTS.md) for how to install it.
+**Tip:** You can set up a `/review-session` slash command to automate this. See [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md) for how to install it.
 
 ---
 

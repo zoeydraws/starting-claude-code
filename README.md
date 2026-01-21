@@ -34,7 +34,7 @@ Anyone new to Claude Code who wants to get the baseline set up and start using i
 | [2_FIRST_SESSION.md](2_FIRST_SESSION.md)             | Your first 15 minutes — what to try               |
 | [3_WORKFLOW_HABITS.md](3_WORKFLOW_HABITS.md)         | Day-to-day habits to keep things running smoothly |
 | [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md) | How to prompt Claude for better results           |
-| [5_SHORTCUTS.md](5_SHORTCUTS.md)                     | Shortcuts and slash commands                      |
+| [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)     | Speed up your workflow with shortcuts             |
 | [6_SKILLS.md](6_SKILLS.md)                           | Auto-triggered patterns (more advanced)           |
 
 ## Templates

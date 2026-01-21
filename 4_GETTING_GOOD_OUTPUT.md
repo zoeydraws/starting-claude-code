@@ -183,5 +183,5 @@ Claude will match the pattern.
 
 ## Next Steps
 
-- Learn about shortcuts in [5_SHORTCUTS.md](5_SHORTCUTS.md)
+- Learn about shortcuts in [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)
 - Set up your CLAUDE.md with prompting preferences
