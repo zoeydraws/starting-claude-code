@@ -17,7 +17,7 @@ There are two ways to automate Claude's behavior:
 
 **Examples:**
 
-- **Shortcut:** In CLAUDE.md you write `"commit" shortcut: When user says "commit", run git add, commit, and push` → Claude follows this when you say "commit"
+- **Shortcut:** In CLAUDE.md you write `"shorter": When I say "shorter", rewrite your last response more concisely` → Claude follows this when you say "shorter"
 - **Skill (user-invoked):** You type `/commit` → Claude loads the commit skill
 - **Skill (auto-triggered):** You say "review this component" → Claude automatically applies your code-review skill
 

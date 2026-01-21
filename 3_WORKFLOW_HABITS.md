@@ -173,6 +173,8 @@ Claude: [Reads the log and has context]
 
 ```
 
+**Tip:** You can set up a `/review-session` slash command to automate this. See [5_SHORTCUTS.md](5_SHORTCUTS.md) for how to install it.
+
 ---
 
 ## 7. Clear Context After Each Task
