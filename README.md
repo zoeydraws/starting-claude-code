@@ -2,6 +2,9 @@
 
 A beginner guide to get Claude Code set up and start using it.
 
+> **Last updated:** February 2026
+> - Reorganized shortcuts vs skills (simple git commands are now shortcuts, complex workflows like `create-pr` are skills)
+
 ## What Is Claude Code?
 
 Claude Code is a tool that lets you work with Claude directly in your computer's terminal (that black window with text). Claude Code can:

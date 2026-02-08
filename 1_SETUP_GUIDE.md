@@ -1,8 +1,5 @@
 # Setup Guide
 
-> **Last updated:** February 2026
-> - Reorganized shortcuts vs skills (simple git commands are now shortcuts, complex workflows like `create-pr` are skills)
-
 This guide walks you through installing Claude Code on macOS (the operating system on Mac computers) using VS Code. Every step includes what you'll see on screen so you know you're on track.
 
 ## Step 1: Install VS Code (if you don't have it)
