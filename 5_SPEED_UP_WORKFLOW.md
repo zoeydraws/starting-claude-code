@@ -23,28 +23,27 @@ Skills are multi-step workflows you trigger by typing `/name`. Here are three es
 
 ### Starter Skills
 
-| Skill             | What It Does                                    |
-| ----------------- | ----------------------------------------------- |
-| `/commit`         | Stage all changes, write commit message, push   |
-| `/pull-main`      | Fetch and merge main branch into current branch |
-| `/review-session` | Summarize session and update SESSION_LOG.md     |
-| `/maintain-docs`  | Review and condense docs to manage context size |
+| Skill             | What It Does                                         |
+| ----------------- | ---------------------------------------------------- |
+| `/create-pr`      | Rebase onto main, handle conflicts, create pull request |
+| `/review-session` | Summarize session and update SESSION_LOG.md          |
+| `/maintain-docs`  | Review and condense docs to manage context size      |
 
 ### How to Install Them
 
 **Option A: Ask Claude to create them**
 
-1. Open one of the template files in the [`skills/`](skills/) folder (e.g., `commit/SKILL.md`)
+1. Open one of the template files in the [`skills/`](skills/) folder (e.g., `create-pr/SKILL.md`)
 2. Copy the contents
 3. Tell Claude:
 
 ```
-Create a /commit skill with these instructions:
+Create a /create-pr skill with these instructions:
 
 [paste the contents here]
 ```
 
-Claude will create the skill folder at `~/.claude/skills/commit/SKILL.md` for you.
+Claude will create the skill folder at `~/.claude/skills/create-pr/SKILL.md` for you.
 
 **Option B: Copy the files manually (if you're comfortable with terminal)**
 
@@ -81,7 +80,21 @@ See the [`skills/`](skills/) folder for full examples.
 
 For simple one-liner rules, add them to your CLAUDE.md instead of creating a file.
 
-**Example** — add this to `~/.claude/CLAUDE.md`:
+### Git Shortcuts
+
+These are common git workflows that work well as shortcuts:
+
+| Shortcut | What It Does |
+|----------|--------------|
+| `commit` | Stage all changes, write commit message, push |
+| `pull-main` | Fetch and merge main into current branch |
+| `new-branch <name>` | Check out main, pull latest, create new branch |
+
+Add these to your `~/.claude/CLAUDE.md` (see [templates/STARTER_GLOBAL_CLAUDE.md](templates/STARTER_GLOBAL_CLAUDE.md) for examples).
+
+### Custom Shortcuts
+
+You can create any shortcut for things you say often:
 
 ```markdown
 - **"shorter"**: When I say "shorter", rewrite your last response more concisely

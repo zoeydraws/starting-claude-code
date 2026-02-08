@@ -38,9 +38,15 @@ Claude reads this file at the start of every session.
 
 <!-- Common commands you want to work the same way everywhere -->
 
-- **"commit" shortcut**: When I say "commit" (alone or with context),
-  stage all changes, write a descriptive commit message, and push.
-  No need to ask for confirmation.
+### Git Shortcuts
+
+| Shortcut | What it does |
+|----------|--------------|
+| `new-branch <name>` | Warn uncommitted changes, checkout main, pull, create branch |
+| `pull-main` | Fetch and merge main into current branch |
+| `commit` | Stage all changes, write commit message, push |
+
+<!-- For more complex git workflows like creating PRs with rebasing, use a skill instead -->
 
 ## Things to Avoid
 

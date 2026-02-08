@@ -31,7 +31,7 @@ There are two ways to automate Claude's behavior:
 **Examples:**
 
 - **Shortcut:** In CLAUDE.md you write `"shorter": When I say "shorter", rewrite your last response more concisely` → Claude follows this when you say "shorter"
-- **Skill (user-invoked):** You type `/commit` → Claude loads the commit skill
+- **Skill (user-invoked):** You type `/create-pr` → Claude loads the create-pr skill
 - **Skill (auto-triggered):** You say "review this component" → Claude automatically applies your code-review skill
 
 **Rule of thumb:** If it fits in one sentence, use a shortcut. If it needs a checklist or template, make it a skill.
