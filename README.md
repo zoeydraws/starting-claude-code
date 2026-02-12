@@ -39,6 +39,18 @@ Anyone new to Claude Code who wants to get the baseline set up and start using i
 | [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md) | How to prompt Claude for better results           |
 | [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)     | Speed up your workflow with shortcuts             |
 | [6_SKILLS.md](6_SKILLS.md)                           | Auto-triggered patterns (more advanced)           |
+| [7_FUN_STATUS_LINE.md](7_FUN_STATUS_LINE.md)         | Customize your terminal status line               |
+
+## Starter Skills
+
+The `skills/` folder contains skills you can copy to `~/.claude/skills/` to use across projects:
+
+| Skill | What It Does |
+| ----- | ------------ |
+| [create-pr](skills/create-pr/SKILL.md) | Rebase onto main, resolve conflicts, force push, and create a pull request |
+| [maintain-docs](skills/maintain-docs/SKILL.md) | Review and condense documentation files to manage context length |
+| [review-session](skills/review-session/SKILL.md) | Summarize what you accomplished and update SESSION_LOG.md |
+| [transcript-analysis](skills/transcript-analysis/SKILL.md) | Extract quotes from interview transcripts, verify them, and cluster into themes |
 
 ## Templates
 
