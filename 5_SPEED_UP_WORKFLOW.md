@@ -58,7 +58,7 @@ Each skill is a folder containing a `SKILL.md` file:
 
 ```
 ~/.claude/skills/
-└── commit/
+└── create-pr/
     └── SKILL.md
 ```
 
