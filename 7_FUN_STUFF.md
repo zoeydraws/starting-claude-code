@@ -18,26 +18,17 @@ The status line shows helpful info at a glance while you work.
 
 ### How to Set It Up
 
-Ask Claude:
+Give Claude Code this prompt:
 
-```
-Set up a custom status line that shows: git branch (blue), context window
-usage % (green under 45%, yellow under 70%, red above), the active model
-name, and which subagent is running (if any). Use a shell script at
-~/.claude/statusline.sh and hooks to track subagent start/stop.
-```
+````
+Set up a custom status line for Claude Code.
 
-Claude will create the script, hooks, and settings for you.
-
-### What It Creates
-
-**`~/.claude/statusline.sh`** — The script that formats the status line:
+1. Create ~/.claude/statusline.sh with this script and make it executable:
 
 ```bash
 #!/bin/bash
 input=$(cat)
 
-# ANSI color codes
 BLUE='\033[94m'
 GREEN='\033[92m'
 YELLOW='\033[93m'
@@ -45,23 +36,16 @@ RED='\033[91m'
 CYAN='\033[96m'
 RESET='\033[0m'
 
-# Get git branch name
 branch=$(git branch --show-current 2>/dev/null || echo "no-git")
-
-# Get context usage percentage
 percent=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | xargs printf "%.0f")
-
-# Get main model name
 model=$(echo "$input" | jq -r '.model.display_name // .data.model.display_name // ""')
 
-# Check for active subagent
 AGENT_TRACKER="/tmp/claude-subagent-$USER"
 subagent=""
 if [ -f "$AGENT_TRACKER" ]; then
   subagent=$(cat "$AGENT_TRACKER")
 fi
 
-# Color based on context usage
 if [ "$percent" -lt 45 ]; then
   PERCENT_COLOR=$GREEN
 elif [ "$percent" -lt 70 ]; then
@@ -70,7 +54,6 @@ else
   PERCENT_COLOR=$RED
 fi
 
-# Build output
 if [ -n "$model" ]; then
   if [ -n "$subagent" ]; then
     echo -e "${BLUE}${branch}${RESET} • ${PERCENT_COLOR}${percent}%${RESET} • ${model} ${CYAN}→ ${subagent}${RESET}"
@@ -82,7 +65,7 @@ else
 fi
 ```
 
-**`~/.claude/hooks/track-subagent.sh`** — Tracks when subagents start and stop:
+2. Create ~/.claude/hooks/ directory and add ~/.claude/hooks/track-subagent.sh with this script, make it executable:
 
 ```bash
 #!/bin/bash
@@ -99,7 +82,7 @@ fi
 exit 0
 ```
 
-**`~/.claude/settings.json`** — Points to the script and hooks:
+3. Add this to ~/.claude/settings.json (merge with existing settings if the file already exists):
 
 ```json
 {
@@ -114,6 +97,9 @@ exit 0
   }
 }
 ```
+````
+
+Restart Claude Code to see the status line.
 
 ### Why It's Useful
 
@@ -131,16 +117,44 @@ If you write markdown files (notes, documentation, READMEs), you can preview the
 
 ### How to Set It Up
 
-Ask Claude:
+Give Claude Code this prompt:
 
 ```
-Set up mdview for me — a shell function that converts markdown files
-to styled HTML using pandoc and opens them in my browser. I want
-Notion-style CSS styling. Also add an mdrefresh function that rebuilds
-the HTML without opening a new tab.
+Set up a `mdview` shell function so I can preview .md files in my browser.
+
+1. Install pandoc via homebrew if not already installed
+2. Create ~/.pandoc/ directory
+3. Download a clean Notion-style CSS to ~/.pandoc/notion.css (find one online or generate a minimal one)
+4. Add these functions to my ~/.zshrc:
+
+mdview() {
+  pandoc "$1" --embed-resources --standalone --css="$HOME/.pandoc/notion.css" -o /tmp/mdview.html && open /tmp/mdview.html
+}
+
+mdrefresh() {
+  pandoc "$1" --embed-resources --standalone --css="$HOME/.pandoc/notion.css" -o /tmp/mdview.html
+}
+
+5. Reload my shell config
+
+Then test it by running: mdview README.md
 ```
 
-Claude will install pandoc (if needed), create the CSS file, and add the shell functions.
+Once that's working, add this to your project or global CLAUDE.md so Claude knows the shortcut:
+
+```markdown
+### Markdown Preview
+
+When user says "open [file].md" or "pandoc [file]", run the `mdview` shell function to preview it in the browser:
+
+source ~/.zshrc && mdview "<path-to-file>"
+
+When user says "refresh", run `mdrefresh` to rebuild the HTML without opening a new tab:
+
+source ~/.zshrc && mdrefresh
+```
+
+Then you can just tell Claude "open readme.md" and it'll render and open it in your browser.
 
 ### How to Use It
 
@@ -150,7 +164,7 @@ Claude will install pandoc (if needed), create the CSS file, and add the shell f
 mdview my-file.md
 ```
 
-This converts the file to HTML and opens it in your browser.
+This converts the file to styled HTML and opens it in your browser.
 
 **Update after edits:**
 
@@ -158,4 +172,4 @@ This converts the file to HTML and opens it in your browser.
 mdrefresh
 ```
 
-Then press `Cmd + R` in your browser to see the changes. (mdrefresh rebuilds the HTML but doesn't open a new tab.)
+Then press `Cmd + R` in your browser to see the changes. (`mdrefresh` rebuilds the HTML without opening a new tab.)
