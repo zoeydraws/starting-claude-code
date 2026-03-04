@@ -21,6 +21,7 @@ These work out of the box:
 
 Skills are multi-step workflows you trigger by typing `/name`. Here are three essential ones to get you started.
 
+
 ### Starter Skills
 
 | Skill             | What It Does                                         |
@@ -28,6 +29,7 @@ Skills are multi-step workflows you trigger by typing `/name`. Here are three es
 | `/create-pr`      | Rebase onto main, handle conflicts, create pull request |
 | `/review-session` | Summarize session and update SESSION_LOG.md          |
 | `/maintain-docs`  | Review and condense docs to manage context size      |
+
 
 ### How to Install Them
 
@@ -51,6 +53,7 @@ Claude will create the skill folder at `~/.claude/skills/create-pr/SKILL.md` for
 mkdir -p ~/.claude/skills
 cp -r skills/* ~/.claude/skills/
 ```
+
 
 ### Skill File Format
 
@@ -80,6 +83,7 @@ See the [`skills/`](skills/) folder for full examples.
 
 For simple one-liner rules, add them to your CLAUDE.md instead of creating a file.
 
+
 ### Git Shortcuts
 
 These are common git workflows that work well as shortcuts:
@@ -91,6 +95,7 @@ These are common git workflows that work well as shortcuts:
 | `new-branch <name>` | Check out main, pull latest, create new branch |
 
 Add these to your `~/.claude/CLAUDE.md` (see [templates/STARTER_GLOBAL_CLAUDE.md](templates/STARTER_GLOBAL_CLAUDE.md) for examples).
+
 
 ### Custom Shortcuts
 

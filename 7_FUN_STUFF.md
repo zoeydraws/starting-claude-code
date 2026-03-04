@@ -4,7 +4,7 @@ Optional extras that make Claude Code more enjoyable to use. None of these are r
 
 ---
 
-## Customize Your Status Line
+## 1. Customize Your Status Line
 
 The status line shows helpful info at a glance while you work.
 
@@ -15,6 +15,7 @@ The status line shows helpful info at a glance while you work.
 - **Context %** — How much of Claude's memory is used (green/yellow/red based on usage)
 - **Model** — Which Claude model is active (e.g., Opus 4.5)
 - **Active subagent** — Which subagent is running, if any (cyan)
+
 
 ### How to Set It Up
 
@@ -28,6 +29,7 @@ name, and which subagent is running (if any). Use a shell script at
 ```
 
 Claude will create the script, hooks, and settings for you.
+
 
 ### What It Creates
 
@@ -115,6 +117,7 @@ exit 0
 }
 ```
 
+
 ### Why It's Useful
 
 - **Context %** tells you when to `/compact` (if it's getting high)
@@ -123,11 +126,12 @@ exit 0
 
 ---
 
-## Preview Markdown in Your Browser
+## 2. Preview Markdown in Your Browser
 
 If you write markdown files (notes, documentation, READMEs), you can preview them as beautifully styled pages in your browser – like how they'd look in Notion.
 
 **What it does:** Converts any `.md` file into a styled HTML page and opens it in your browser. No more squinting at raw markdown.
+
 
 ### How to Set It Up
 
@@ -141,6 +145,7 @@ the HTML without opening a new tab.
 ```
 
 Claude will install pandoc (if needed), create the CSS file, and add the shell functions.
+
 
 ### How to Use It
 

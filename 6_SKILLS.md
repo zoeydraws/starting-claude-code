@@ -36,6 +36,7 @@ There are two ways to automate Claude's behavior:
 
 **Rule of thumb:** If it fits in one sentence, use a shortcut. If it needs a checklist or template, make it a skill.
 
+
 ### Why This Matters: Saving Tokens
 
 Your CLAUDE.md file is loaded into Claude's memory for **every conversation**. If it's full of situational instructions (like "when writing a research report, use this format..."), Claude reads all of that even when you're just asking it to commit code.
@@ -48,6 +49,7 @@ Your CLAUDE.md file is loaded into Claude's memory for **every conversation**. I
 **Example:** You have detailed instructions for creating UX research reports. Instead of keeping this in CLAUDE.md (loaded every time), move it to a `ux-research-report` skill. Claude only loads those instructions when you're actually working on a report.
 
 This keeps your context lean and saves tokens for what actually matters in each conversation.
+
 
 ### How to Decide: 4 Questions
 
@@ -71,6 +73,7 @@ A Skill is a folder containing a `SKILL.md` file with instructions. The file has
 
 1. **Frontmatter** — Metadata that controls how the skill behaves
 2. **Instructions** — What Claude should do
+
 
 ### Example: A Simple Code Review Skill
 
@@ -96,6 +99,7 @@ When reviewing code, check for:
 ```
 
 When you ask Claude to review code, it reads the description, recognizes this skill is relevant, and follows the instructions automatically.
+
 
 ### Frontmatter Options
 
@@ -142,6 +146,7 @@ Start with personal skills while learning. Move to project skills when you have 
 
 ## How to Use Skills
 
+
 ### Check If You Have Any Skills Installed
 
 In Claude Code, run:
@@ -153,6 +158,7 @@ ls .claude/skills/
 
 If these folders don't exist or are empty, you have no skills installed yet.
 
+
 ### Installing Skills from Plugins
 
 Anthropic provides official skills you can install:
@@ -163,6 +169,7 @@ Anthropic provides official skills you can install:
 ```
 
 This gives you skills for creating documents (Word, PDF, PowerPoint, Excel) and other utilities.
+
 
 ### Creating Your Own Skill
 
@@ -210,17 +217,20 @@ This keeps Claude's context focused — it doesn't load everything upfront, just
 
 It's tempting to install a bunch of skills "just in case" — but every skill adds to what Claude has to scan through to decide what's relevant. More isn't better.
 
+
 ### Good Reasons to Add a Skill
 
 - You do this task **repeatedly** (weekly or more)
 - The task has a **specific format** you want followed every time
 - You're currently keeping detailed instructions in CLAUDE.md that are **only sometimes relevant**
 
+
 ### Bad Reasons to Add a Skill
 
 - "This looks cool"
 - "I might need this someday"
 - "Everyone recommends it"
+
 
 ### A Practical Approach
 
@@ -229,6 +239,7 @@ It's tempting to install a bunch of skills "just in case" — but every skill ad
 3. **Add one skill** — For your most repeated workflow
 4. **Evaluate** — Did it actually help? Keep or remove.
 5. **Repeat** — Add skills one at a time, based on real need
+
 
 ### Build vs Download
 
@@ -245,6 +256,7 @@ The official Anthropic skills are good for **generic outputs** (documents, sprea
 ## Skill Collections
 
 These are good starting points. Don't treat them as final — customize and build upon them for your specific needs.
+
 
 ### Official Anthropic Skills
 
@@ -267,6 +279,7 @@ Install with:
 /plugin install example-skills@anthropic-agent-skills
 ```
 
+
 ### Community Collections
 
 | Resource                                                                                                 | What's Included                                       |
@@ -281,6 +294,7 @@ Install with:
 ## Skills for Product & UX Work
 
 These are particularly relevant if you're doing product management, UX research, or design work:
+
 
 ### PRD (Product Requirements Document) Skills
 

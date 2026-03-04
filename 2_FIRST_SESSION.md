@@ -23,6 +23,7 @@ Just type the letter and press Enter.
 
 ## Try These First Commands
 
+
 ### 1. Ask Claude what's in your project
 
 ```
@@ -30,6 +31,7 @@ What files are in this project? Give me a quick overview.
 ```
 
 **What happens:** Claude will scan your folders and summarize what it finds. This helps Claude (and you) understand what you're working with.
+
 
 ### 2. Ask a question about your content
 
@@ -40,6 +42,7 @@ Can you read [filename] and summarize the key points?
 Replace `[filename]` with an actual file in your project.
 
 **What happens:** Claude reads the file and gives you a summary. This confirms Claude can access your files.
+
 
 ### 3. Ask Claude to help with a small task
 
@@ -72,13 +75,16 @@ If Claude gives a very long response, you can scroll up in Terminal to see every
 
 ## Common First-Timer Questions
 
+
 ### "How do I stop Claude mid-response?"
 
 Press `Escape` (easiest) or `Ctrl + C`. This interrupts whatever Claude is doing.
 
+
 ### "How do I exit Claude Code?"
 
 Type `/exit` or press `Ctrl + C` twice.
+
 
 ### "Can I undo a change Claude made?"
 
@@ -90,6 +96,7 @@ Yes! Use `/rewind` (or press `Escape` twice) to open a menu where you can:
 
 Claude automatically creates checkpoints before each edit, so you can always go back.
 
+
 ### "Can I see previous conversations?"
 
 From terminal (before starting Claude):
@@ -100,6 +107,7 @@ From terminal (before starting Claude):
 From inside Claude:
 
 - `/resume` — switch to a different conversation
+
 
 ### "How do I start over?"
 
