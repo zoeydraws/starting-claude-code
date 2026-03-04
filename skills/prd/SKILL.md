@@ -55,12 +55,14 @@ _(empty – filled in Phase 2)_
 
 ## Phase 2: Build
 
-**Input:** Scaffolded feature sections from Phase 1 + user's design decisions during prototyping
+**Input:** Scaffolded feature sections from Phase 1 + user's design decisions during prototyping + codebase (if code already exists)
 
-**What to do:** Flesh out each feature section – expand bullets, write acceptance criteria, add future items.
+**What to do:** Flesh out each feature section – expand bullets, write acceptance criteria, add future items. If code already exists, read it to ensure descriptions and acceptance criteria match actual behavior.
 
 **Rules:**
 
+- Read the codebase first (if it exists) – base feature descriptions on what's actually implemented, not assumptions
+- Flag features where code behavior differs from the scaffold's intent
 - Each bullet should be understandable without reading the rest of the PRD
 - Acceptance criteria must be testable (not vague like "works well")
 - Design decisions documented inline with rationale, not in a separate table
@@ -91,14 +93,15 @@ _(empty – filled in Phase 2)_
 
 ## Phase 4: Review
 
-**Input:** Completed PRD + research docs (if available)
+**Input:** Completed PRD + research docs (if available) + codebase
 
-**What to do:** Audit and fix.
+**What to do:** Audit the PRD against research and the actual codebase. Fix any gaps.
 
 **Checks:**
 
 1. **Acceptance criteria coverage** – every feature has testable criteria
-2. **Research traceability** – if research docs exist, generate Research Theme Coverage table:
+2. **Code accuracy** – spot-check the codebase for features implemented but not in the PRD, or PRD descriptions that no longer match code
+3. **Research traceability** – if research docs exist, generate Research Theme Coverage table:
 
 ```markdown
 | Theme | Agencies | Priority | PRD Feature |
