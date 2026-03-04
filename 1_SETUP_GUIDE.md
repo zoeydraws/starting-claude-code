@@ -39,7 +39,6 @@ Your folder's files appear in the left sidebar. You can click any file to view o
 
 There are two ways to install Claude Code. Pick whichever feels easier for you.
 
-
 ### Option 1: Install via Terminal (Recommended)
 
 This is the official recommended method. It auto-updates in the background, so you always have the latest version.
@@ -64,7 +63,6 @@ This downloads and runs the official Claude Code installer from Anthropic.
 claude --version
 ```
 
-
 ### Option 2: Install via VS Code Extension
 
 If the terminal method doesn't work for you, you can install Claude Code as a VS Code extension.
@@ -81,11 +79,9 @@ If the terminal method doesn't work for you, you can install Claude Code as a VS
 
 How you start Claude Code depends on how you installed it.
 
-
 ### Option 1: Click the Claude Icon (Extension Install)
 
 If you installed via the VS Code extension, look for the **Claude icon** in the sidebar (left or right side, depending on your VS Code layout). Click it to open Claude Code.
-
 
 ### Option 2: Type `claude` in Terminal (Terminal Install)
 
@@ -180,7 +176,6 @@ See [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md) for more on shortcuts and s
 
 ## Troubleshooting
 
-
 ### "command not found: curl"
 
 This is rare on macOS, but if you see this error:
@@ -193,13 +188,11 @@ This is rare on macOS, but if you see this error:
 3. Follow the prompts to install
 4. Try the installation command again
 
-
 ### Installation seems stuck
 
 The installer might be waiting for input. Try:
 1. Press Enter a few times
 2. If still stuck, press `Ctrl + C` to cancel and try again
-
 
 ### "permission denied" errors
 
@@ -208,11 +201,9 @@ Try running the installer with sudo (you'll need to enter your Mac password):
 curl -fsSL https://claude.ai/install.sh | sudo bash
 ```
 
-
 ### Claude Code won't start
 
 Make sure you're connected to the internet. Claude Code needs to connect to Anthropic's servers.
-
 
 ### "command not found: claude" after installation
 
@@ -221,16 +212,13 @@ The terminal might not have refreshed. Try:
 2. Or type `source ~/.zshrc` (or `source ~/.bashrc`) to refresh your terminal
 3. Try `claude` again
 
-
 ### Terminal shows wrong folder
 
 If your terminal prompt doesn't show your project folder name, the terminal might have opened before you selected a folder. Close the terminal panel (click the X) and reopen it with `Cmd + J`.
 
-
 ### "I don't know what folder to use"
 
 Start with any folder that has documents you're working on. You can always close Claude Code (`Ctrl + C`) and open VS Code with a different folder.
-
 
 ### Check your installation
 
