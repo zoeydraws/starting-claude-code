@@ -185,6 +185,8 @@ As your conversation grows, Claude has to "compact" (summarize) older context to
 **The solution:**
 Clear context after completing each task. This gives Claude a fresh start with full capacity.
 
+**Note:** You don't have to do this every time — Claude is getting better at handling long conversations and compacting. But it's a good habit to wrap up a chat by clearing context, especially before switching to a different task.
+
 **The workflow:**
 ```
 
