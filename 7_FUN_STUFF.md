@@ -16,8 +16,6 @@ The status line shows helpful info at a glance while you work.
 - **Model** — Which Claude model is active (e.g., Opus 4.5)
 - **Active subagent** — Which subagent is running, if any (cyan)
 
----
-
 ### How to Set It Up
 
 Ask Claude:
@@ -30,8 +28,6 @@ name, and which subagent is running (if any). Use a shell script at
 ```
 
 Claude will create the script, hooks, and settings for you.
-
----
 
 ### What It Creates
 
@@ -119,8 +115,6 @@ exit 0
 }
 ```
 
----
-
 ### Why It's Useful
 
 - **Context %** tells you when to `/compact` (if it's getting high)
@@ -135,8 +129,6 @@ If you write markdown files (notes, documentation, READMEs), you can preview the
 
 **What it does:** Converts any `.md` file into a styled HTML page and opens it in your browser. No more squinting at raw markdown.
 
----
-
 ### How to Set It Up
 
 Ask Claude:
@@ -149,8 +141,6 @@ the HTML without opening a new tab.
 ```
 
 Claude will install pandoc (if needed), create the CSS file, and add the shell functions.
-
----
 
 ### How to Use It
 
