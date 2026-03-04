@@ -4,7 +4,7 @@ Optional extras that make Claude Code more enjoyable to use. None of these are r
 
 ---
 
-## Customize Your Status Line
+## 1. Customize Your Status Line
 
 The status line shows helpful info at a glance while you work.
 
@@ -123,7 +123,7 @@ exit 0
 
 ---
 
-## Preview Markdown in Your Browser
+## 2. Preview Markdown in Your Browser
 
 If you write markdown files (notes, documentation, READMEs), you can preview them as beautifully styled pages in your browser – like how they'd look in Notion.
 

@@ -51,6 +51,7 @@ The `skills/` folder contains skills you can copy to `~/.claude/skills/` to use 
 | [maintain-docs](skills/maintain-docs/SKILL.md) | Review and condense documentation files to manage context length |
 | [review-session](skills/review-session/SKILL.md) | Summarize what you accomplished and update SESSION_LOG.md |
 | [transcript-analysis](skills/transcript-analysis/SKILL.md) | Extract quotes from interview transcripts, verify them, and cluster into themes |
+| [prd](skills/prd/SKILL.md) | Create and review product requirement documents through a 4-phase pipeline |
 
 ## Templates
 
