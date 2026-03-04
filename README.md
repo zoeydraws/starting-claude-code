@@ -39,7 +39,7 @@ Anyone new to Claude Code who wants to get the baseline set up and start using i
 | [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md) | How to prompt Claude for better results           |
 | [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)     | Speed up your workflow with shortcuts             |
 | [6_SKILLS.md](6_SKILLS.md)                           | Auto-triggered patterns (more advanced)           |
-| [7_FUN_STATUS_LINE.md](7_FUN_STATUS_LINE.md)         | Customize your terminal status line               |
+| [7_FUN_STUFF.md](7_FUN_STUFF.md)                     | Status line, markdown preview, and other extras   |
 
 ## Starter Skills
 
