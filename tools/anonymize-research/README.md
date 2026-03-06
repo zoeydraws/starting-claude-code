@@ -1,6 +1,6 @@
 # Anonymize Research Data
 
-Removes personally identifiable information (PII) from research files using Microsoft Presidio. It detects names, emails, phone numbers, locations, company names, and more – and replaces them with labels like `<PERSON_1>`, `<LOCATION>`, `<EMAIL_ADDRESS>`.
+Removes personally identifiable information (PII) from research files (`.md`, `.txt`, `.csv`, `.xlsx`) using Microsoft Presidio. It detects names, emails, phone numbers, locations, company names, and more – and replaces them with labels like `<PERSON_1>`, `<LOCATION>`, `<EMAIL_ADDRESS>`.
 
 People get **numbered labels** so you can still track who said what without exposing real names (e.g. "Jane Doe" becomes `<PERSON_1>` everywhere, including when just "Jane" is mentioned).
 
