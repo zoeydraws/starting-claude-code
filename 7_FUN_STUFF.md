@@ -207,3 +207,15 @@ mdrefresh
 ```
 
 Then press `Cmd + R` in your browser to see the changes. (`mdrefresh` rebuilds the HTML without opening a new tab.)
+
+---
+
+## 3. Anonymize Research Data
+
+If you work with user research (interview transcripts, survey responses, etc.), you need to strip out participant names and other personally identifiable information before giving files to Claude.
+
+The [`tools/anonymize-research/`](tools/anonymize-research/) folder includes a Python script that uses Microsoft Presidio to automatically detect and replace PII – names, emails, phone numbers, locations, and more. People get numbered labels (`<PERSON_1>`, `<PERSON_2>`) so you can still track who said what without exposing real names.
+
+**Important:** You run this script in a separate terminal, outside of Claude Code. This keeps raw participant data out of Claude's context entirely.
+
+See the [README](tools/anonymize-research/README.md) for setup and usage instructions.
