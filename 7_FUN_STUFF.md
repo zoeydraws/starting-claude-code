@@ -214,7 +214,7 @@ Then press `Cmd + R` in your browser to see the changes. (`mdrefresh` rebuilds t
 
 If you work with user research (interview transcripts, survey responses, etc.), you need to strip out participant names and other personally identifiable information before giving files to Claude.
 
-The [`tools/anonymize-research/`](tools/anonymize-research/) folder includes a Python script that uses Microsoft Presidio to automatically detect and replace PII in `.md`, `.txt`, `.csv`, and `.xlsx` files – names, emails, phone numbers, locations, and more. People get numbered labels (`<PERSON_1>`, `<PERSON_2>`) so you can still track who said what without exposing real names.
+The [`tools/anonymize-research/`](tools/anonymize-research/) folder includes a Python script that uses Microsoft Presidio to automatically detect and replace PII in `.md`, `.txt`, `.csv`, `.xlsx`, and `.json` files – names, emails, phone numbers, locations, and more. People get numbered labels (`<PERSON_1>`, `<PERSON_2>`) so you can still track who said what without exposing real names.
 
 **Important:** You run this script in a separate terminal, outside of Claude Code. This keeps raw participant data out of Claude's context entirely.
 
