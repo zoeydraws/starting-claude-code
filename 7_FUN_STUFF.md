@@ -156,6 +156,40 @@ source ~/.zshrc && mdrefresh
 
 Then you can just tell Claude "open readme.md" and it'll render and open it in your browser.
 
+### Combine with a Formatting Skill
+
+If you don't want to add markdown rules to your CLAUDE.md (to keep it lean), you can use a skill instead. The [`skills/md/`](skills/md/) folder in this guide includes a ready-made `/md` skill that:
+
+- **Formats markdown** with pandoc-compatible rules (blank lines before lists, en-dashes, table alignment, etc.)
+- **Previews markdown** using the `mdview` and `mdrefresh` functions from above
+
+This way, Claude only loads the formatting rules when you're actually working on markdown – not every session.
+
+**How to install it:**
+
+**Option A: Ask Claude to create it**
+
+1. Open [`skills/md/SKILL.md`](skills/md/SKILL.md) in this guide
+2. Copy the contents
+3. Tell Claude:
+
+```
+Create a /md skill with these instructions:
+
+[paste the contents here]
+```
+
+Claude will create the skill folder at `~/.claude/skills/md/SKILL.md` for you.
+
+**Option B: Copy the file manually (if you're comfortable with terminal)**
+
+```bash
+mkdir -p ~/.claude/skills/md
+cp skills/md/SKILL.md ~/.claude/skills/md/SKILL.md
+```
+
+Once installed, type `/md` to invoke it explicitly, or Claude will auto-apply the formatting rules whenever it creates or edits `.md` files.
+
 ### How to Use It
 
 **Open a preview:**
