@@ -16,7 +16,7 @@ The status line shows helpful info at a glance while you work.
 - **Model** — Which Claude model is active (e.g., Opus 4.5)
 - **Active subagent** — Which subagent is running, if any (cyan)
 
-### How to Set It Up
+### a. How to Set It Up
 
 Give Claude Code this prompt:
 
@@ -101,7 +101,7 @@ exit 0
 
 Restart Claude Code to see the status line.
 
-### Why It's Useful
+### b. Why It's Useful
 
 - **Context %** tells you when to `/compact` (if it's getting high)
 - **Model** confirms you're using the right Claude for the task
@@ -115,7 +115,7 @@ If you write markdown files (notes, documentation, READMEs), you can preview the
 
 **What it does:** Converts any `.md` file into a styled HTML page and opens it in your browser. No more squinting at raw markdown.
 
-### How to Set It Up
+### a. Set Up in Global CLAUDE.md
 
 Give Claude Code this prompt:
 
@@ -156,7 +156,7 @@ source ~/.zshrc && mdrefresh
 
 Then you can just tell Claude "open readme.md" and it'll render and open it in your browser.
 
-### Combine with a Formatting Skill
+### b. Combine with a Formatting Skill
 
 If you don't want to add markdown rules to your CLAUDE.md (to keep it lean), you can use a skill instead. The [`skills/md/`](skills/md/) folder in this guide includes a ready-made `/md` skill that:
 
