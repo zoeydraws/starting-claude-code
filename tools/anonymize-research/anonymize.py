@@ -4,7 +4,7 @@ Anonymize Research Data
 Removes personally identifiable information (PII) from research files
 using Microsoft Presidio.
 
-Supported file types: .md, .txt, .csv, .xlsx
+Supported file types: .md, .txt, .csv, .xlsx, .json
 
 Usage:
     1. Drop files into the input/ folder
@@ -26,6 +26,7 @@ Setup (one-time):
 import re
 import sys
 import csv
+import json
 import shutil
 from pathlib import Path
 
@@ -45,7 +46,7 @@ INPUT_DIR = SCRIPT_DIR / "input"
 OUTPUT_DIR = SCRIPT_DIR / "output"
 
 # File types to process
-SUPPORTED_EXTENSIONS = {".md", ".txt", ".csv", ".xlsx"}
+SUPPORTED_EXTENSIONS = {".md", ".txt", ".csv", ".xlsx", ".json"}
 
 # PII entity types to detect (Presidio built-in)
 # Full list: https://microsoft.github.io/presidio/supported_entities/
@@ -271,6 +272,29 @@ def process_xlsx_file(input_path: Path, output_path: Path):
     wb.save(output_path)
 
 
+def anonymize_json_value(data):
+    """Recursively anonymize all string values in a JSON structure."""
+    if isinstance(data, str):
+        return anonymize_text(data)
+    elif isinstance(data, list):
+        return [anonymize_json_value(item) for item in data]
+    elif isinstance(data, dict):
+        return {key: anonymize_json_value(value) for key, value in data.items()}
+    else:
+        return data
+
+
+def process_json_file(input_path: Path, output_path: Path):
+    """Anonymize all string values in a JSON file."""
+    with open(input_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    anonymized = anonymize_json_value(data)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(anonymized, f, indent=2, ensure_ascii=False)
+
+
 def main():
     # Create folders if they don't exist
     INPUT_DIR.mkdir(exist_ok=True)
@@ -286,7 +310,7 @@ def main():
 
     if not files:
         print(f"No files found in {INPUT_DIR}/")
-        print(f"Drop .md, .txt, .csv, or .xlsx files there and run again.")
+        print(f"Drop .md, .txt, .csv, .xlsx, or .json files there and run again.")
         return
 
     print(f"Found {len(files)} file(s) to process:\n")
@@ -303,6 +327,8 @@ def main():
                 process_csv_file(filepath, output_path)
             elif ext == ".xlsx":
                 process_xlsx_file(filepath, output_path)
+            elif ext == ".json":
+                process_json_file(filepath, output_path)
 
             print("done")
         except Exception as e:
