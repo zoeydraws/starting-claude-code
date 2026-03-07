@@ -39,7 +39,7 @@ Anyone new to Claude Code who wants to get the baseline set up and start using i
 | [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md) | How to prompt Claude for better results           |
 | [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)     | Speed up your workflow with shortcuts             |
 | [6_SKILLS.md](6_SKILLS.md)                           | Auto-triggered patterns (more advanced)           |
-| [7_FUN_STUFF.md](7_FUN_STUFF.md)                     | Status line, markdown preview, and other extras   |
+| [7_FUN_STUFF.md](7_FUN_STUFF.md)                     | Status line, markdown preview, anonymization tools, and other extras |
 
 ## Starter Skills
 
@@ -52,6 +52,16 @@ The `skills/` folder contains skills you can copy to `~/.claude/skills/` to use 
 | [review-session](skills/review-session/SKILL.md) | Summarize what you accomplished and update SESSION_LOG.md |
 | [transcript-analysis](skills/transcript-analysis/SKILL.md) | Extract quotes from interview transcripts, verify them, and cluster into themes |
 | [prd](skills/prd/SKILL.md) | Create and review product requirement documents through a 4-phase pipeline |
+| [md](skills/md/SKILL.md) | Create, format, and preview markdown files with Notion + pandoc compatibility |
+
+## Tools
+
+The `tools/` folder contains standalone scripts you run outside of Claude Code:
+
+| Tool | What It Does |
+| ---- | ------------ |
+| [Anonymize Research](tools/Anonymize%20Research/) | Strip PII from research files using multilingual NER (recommended) |
+| [Anonymize Research – Western](tools/Anonymize%20Research%20-%20Western/) | Lighter Western-only name detection variant |
 
 ## Templates
 
