@@ -56,7 +56,7 @@ The `skills/` folder contains skills you can copy to `~/.claude/skills/` to use 
 
 ## Tools
 
-The `tools/` folder contains standalone scripts you run outside of Claude Code:
+The `tools/` folder contains mini tools and scripts I've built for my own workflow:
 
 | Tool | What It Does |
 | ---- | ------------ |
