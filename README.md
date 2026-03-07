@@ -2,8 +2,8 @@
 
 A beginner guide to get Claude Code set up and start using it.
 
-> **Last updated:** February 2026
-> - Reorganized shortcuts vs skills (simple git commands are now shortcuts, complex workflows like `create-pr` are skills)
+> **Last updated:** March 2026
+> - Split anonymize tool into multilingual (XLM-RoBERTa + two-pass detection) and Western-only versions, updated Fun Stuff guide with comparison table
 
 ## What Is Claude Code?
 
