@@ -24,7 +24,7 @@ You only need to do this once. It installs the libraries the script needs.
 2. **Open VS Code** – but don't open it from an existing Claude project. Instead:
    - Open VS Code fresh (`Cmd + Shift + N` for a new window)
    - Go to **File > Open Folder**
-   - Navigate to wherever you saved this `anonymize-research` folder and open it
+   - Navigate to wherever you saved this `Anonymize Research - Western` folder and open it
 3. **Open the terminal** in VS Code with `Cmd + J`
 4. **Do NOT start Claude Code** in this terminal – this is intentional. You want a plain terminal here
 5. **Run these two commands** one at a time (copy-paste each line, press Enter, wait for it to finish before running the next):
@@ -47,7 +47,7 @@ You only need to do this once. It installs the libraries the script needs.
 
 Every time you need to anonymize research files:
 
-1. **Open the `anonymize-research` folder in VS Code** (same as setup – a fresh window, not your Claude project)
+1. **Open the `Anonymize Research - Western` folder in VS Code** (same as setup – a fresh window, not your Claude project)
 2. **Open the terminal** with `Cmd + J`. Again, do NOT start Claude Code here
 3. **Drop your files** (`.md`, `.txt`, `.csv`, `.xlsx`, `.json`) into the `input/` folder. You can do this in Finder or drag them into the VS Code sidebar
 4. **Run the script** – type this in the terminal and press Enter:

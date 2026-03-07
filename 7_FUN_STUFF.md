@@ -208,14 +208,34 @@ mdrefresh
 
 Then press `Cmd + R` in your browser to see the changes. (`mdrefresh` rebuilds the HTML without opening a new tab.)
 
+### Tip: Use a Markdown Editor
+
+You can also use a third-party markdown editor to read and edit your `.md` files with a nicer interface than VS Code. [Zettlr](https://www.zettlr.com/) is a free, open-source option that renders markdown inline as you type – great for writing documentation, research notes, or guides.
+
 ---
 
 ## 3. Anonymize Research Data
 
 If you work with user research (interview transcripts, survey responses, etc.), you need to strip out participant names and other personally identifiable information before giving files to Claude.
 
-The [`tools/anonymize-research/`](tools/anonymize-research/) folder includes a Python script that uses Microsoft Presidio to automatically detect and replace PII in `.md`, `.txt`, `.csv`, `.xlsx`, and `.json` files – names, emails, phone numbers, locations, and more. People get numbered labels (`<PERSON_1>`, `<PERSON_2>`) so you can still track who said what without exposing real names.
+The `tools/` folder includes two versions of an anonymization script. Both use Microsoft Presidio to automatically detect and replace PII in `.md`, `.txt`, `.csv`, `.xlsx`, and `.json` files – names, emails, phone numbers, locations, and more. People get numbered labels (`<PERSON_1>`, `<PERSON_2>`) so you can still track who said what without exposing real names.
 
-**Important:** You run this script in a separate terminal, outside of Claude Code. This keeps raw participant data out of Claude's context entirely.
+**Important:** You run these scripts in a separate terminal, outside of Claude Code. This keeps raw participant data out of Claude's context entirely.
 
-See the [README](tools/anonymize-research/README.md) for setup and usage instructions.
+### a. Which Version Should I Use?
+
+| Version | Best for | Name detection | Download size |
+| ------- | -------- | -------------- | ------------- |
+| [**Anonymize Research**](tools/Anonymize%20Research/) (recommended) | Teams with diverse participant names | Multilingual – Malay, Chinese, Indian, Arabic, Western, etc. | ~1.2 GB |
+| [**Anonymize Research – Western**](tools/Anonymize%20Research%20-%20Western/) | Teams with only Western/English participant names | English names only | ~500 MB |
+
+The **recommended version** uses a multilingual transformer model and a **two-pass system** – if a name is detected on any line, a cleanup pass catches any remaining occurrences the model missed (including partial names and possessives like "Jane's").
+
+The **Western version** is lighter and faster, but only reliably detects Western/English names.
+
+### b. Setup and Usage
+
+See each version's README for setup and usage instructions:
+
+- [Anonymize Research README](tools/Anonymize%20Research/README.md) (recommended)
+- [Anonymize Research – Western README](tools/Anonymize%20Research%20-%20Western/README.md)
