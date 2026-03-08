@@ -69,6 +69,7 @@ class YNABClient:
         budget_id: str,
         account_id: str,
         transactions: list[Transaction],
+        force: bool = False,
     ) -> dict:
         """Create transactions in YNAB.
 
@@ -76,13 +77,14 @@ class YNABClient:
             budget_id: Budget ID
             account_id: Account ID to add transactions to
             transactions: List of Transaction objects
+            force: Skip import_id to bypass duplicate detection
 
         Returns:
             API response with created/duplicate transaction info
         """
         payload = {
             "transactions": [
-                txn.to_ynab_dict(account_id) for txn in transactions
+                txn.to_ynab_dict(account_id, force=force) for txn in transactions
             ]
         }
 

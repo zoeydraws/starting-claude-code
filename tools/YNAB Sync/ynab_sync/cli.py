@@ -150,8 +150,9 @@ def ynab_accounts_cmd(ctx):
 @cli.command("import-dir")
 @click.argument("directory", type=click.Path(exists=True, file_okay=False))
 @click.option("--dry-run", is_flag=True, help="Show what would be imported without making changes")
+@click.option("--force", is_flag=True, help="Force import, bypassing duplicate detection")
 @click.pass_context
-def import_dir_cmd(ctx, directory, dry_run):
+def import_dir_cmd(ctx, directory, dry_run, force):
     """Import all CSV/Excel files from a directory.
 
     Files are matched to accounts based on detected bank and card type.
@@ -231,6 +232,7 @@ def import_dir_cmd(ctx, directory, dry_run):
                     budget_id=config.ynab.budget_id,
                     account_id=account_config.ynab_account_id,
                     transactions=transactions,
+                    force=force,
                 )
                 created = len(result.get("transaction_ids", []))
                 duplicates = len(result.get("duplicate_import_ids", []))
@@ -257,8 +259,9 @@ def detect_cmd(file):
 
 @cli.command("run")
 @click.option("--dry-run", is_flag=True, help="Preview only, don't upload")
+@click.option("--force", is_flag=True, help="Force import, bypassing duplicate detection")
 @click.pass_context
-def run_cmd(ctx, dry_run):
+def run_cmd(ctx, dry_run, force):
     """Process all files in the inbox folder and upload to YNAB.
 
     This is the main command. Just drop your bank files in the 'inbox' folder
@@ -281,7 +284,7 @@ def run_cmd(ctx, dry_run):
         return
 
     # Call import-dir with the inbox folder
-    ctx.invoke(import_dir_cmd, directory=str(inbox_dir), dry_run=dry_run)
+    ctx.invoke(import_dir_cmd, directory=str(inbox_dir), dry_run=dry_run, force=force)
 
     # If not dry run, offer to clear processed files
     if not dry_run:

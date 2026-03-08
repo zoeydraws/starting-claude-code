@@ -27,15 +27,16 @@ class Transaction(BaseModel):
         hash_suffix = md5(unique_str.encode()).hexdigest()[:8]
         return f"YNAB:{self.amount}:{self.date.isoformat()}:{hash_suffix}"
 
-    def to_ynab_dict(self, account_id: str) -> dict:
+    def to_ynab_dict(self, account_id: str, force: bool = False) -> dict:
         """Convert to YNAB API format."""
         result = {
             "account_id": account_id,
             "date": self.date.isoformat(),
             "amount": self.amount,
             "payee_name": self.payee_name,
-            "import_id": self.import_id,
         }
+        if not force:
+            result["import_id"] = self.import_id
         if self.memo:
             result["memo"] = self.memo
         return result

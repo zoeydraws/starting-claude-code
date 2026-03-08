@@ -110,6 +110,16 @@ If you want to see what will be uploaded (without actually uploading):
 ynab-sync run --dry-run
 ```
 
+### Need to re-import transactions?
+
+If you see "0 new, X duplicates" but want to force the transactions through (e.g. you deleted them from YNAB and need to re-import):
+
+```
+ynab-sync run --force
+```
+
+This skips duplicate detection so YNAB will accept all transactions, even if they were previously imported. **Use with care** — it will create duplicates if the transactions already exist in YNAB.
+
 ---
 
 ## Setting Up Your Accounts
