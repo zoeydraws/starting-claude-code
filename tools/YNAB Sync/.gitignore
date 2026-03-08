@@ -1,0 +1,10 @@
+config.yaml
+inbox/
+Reference/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.DS_Store
+.claude/

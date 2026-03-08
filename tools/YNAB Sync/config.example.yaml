@@ -1,0 +1,68 @@
+# YNAB Sync Configuration
+# Copy this file to config.yaml and fill in your values
+
+ynab:
+  # Your YNAB Personal Access Token
+  # Get it from: https://app.ynab.com/settings/developer
+  # You can use an environment variable: "${YNAB_API_TOKEN}"
+  api_token: "${YNAB_API_TOKEN}"
+
+  # Budget ID (use "default" for your default budget, or specify the UUID)
+  # Run 'ynab-sync ynab-accounts' to see your budget IDs
+  budget_id: "your-budget-id-here"
+
+# Map your bank accounts to YNAB accounts
+# The 'bank' field should match the specific account type for auto-detection:
+#   UOB: uob-bank, uob-one-cc, uob-ppv-cc, uob-ladies-cc
+#   Citibank: citi-premier-cc, citi-shared-cc
+#   DBS: dbs
+#   Wise: wise
+
+accounts:
+  # === UOB Accounts ===
+
+  # UOB Bank Account (One Account)
+  - name: "UOB Bank"
+    bank: "uob-bank"
+    ynab_account_id: "your-account-id-here"
+
+  # UOB ONE Credit Card
+  - name: "UOB ONE CC"
+    bank: "uob-one-cc"
+    ynab_account_id: "your-account-id-here"
+
+  # UOB Preferred Platinum Visa Credit Card
+  # - name: "UOB PPV CC"
+  #   bank: "uob-ppv-cc"
+  #   ynab_account_id: "your-account-id-here"
+
+  # UOB Lady's Solitaire Credit Card
+  # - name: "UOB Ladies CC"
+  #   bank: "uob-ladies-cc"
+  #   ynab_account_id: "your-account-id-here"
+
+  # === Citibank Accounts ===
+
+  # Citibank Premier Credit Card
+  - name: "Citi Premier CC"
+    bank: "citi-premier-cc"
+    ynab_account_id: "your-account-id-here"
+
+  # Citibank Shared Credit Card
+  - name: "Citi Shared CC"
+    bank: "citi-shared-cc"
+    ynab_account_id: "your-account-id-here"
+
+  # === DBS Accounts ===
+
+  # DBS Bank Account
+  - name: "DBS Bank"
+    bank: "dbs"
+    ynab_account_id: "your-account-id-here"
+
+  # === Wise Accounts ===
+
+  # Wise Transfer Account
+  # - name: "Wise"
+  #   bank: "wise"
+  #   ynab_account_id: "your-account-id-here"
