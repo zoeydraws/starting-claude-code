@@ -54,26 +54,30 @@ The Database ID is the long string of characters in the URL when you open your d
 
 ### 5. Store your credentials in Keychain
 
-This stores your API key and database ID in **macOS Keychain** – the same secure system that stores your Wi-Fi passwords. Your credentials never appear in project files and never enter Claude Code's context (Keychain fetches happen at runtime).
+This step stores your API key and database ID in **macOS Keychain** – the same secure system that stores your Wi-Fi passwords. Your credentials never appear in project files.
 
-Give Claude Code this prompt:
+**Do this outside of Claude Code.** If you type your API key in Claude's terminal, Claude can see it. Instead:
 
+1. **Close Claude Code** if it's running (type `/exit` or close the terminal)
+2. **Open a plain terminal** – press `Cmd + J` in VS Code (without Claude running), or open Terminal from Applications > Utilities
+3. **Run these two commands**, replacing the placeholder values with yours:
+
+```bash
+security add-generic-password -a "notion" -s "notion-api-key" -w "YOUR_API_KEY_HERE"
 ```
-Store my Notion credentials in macOS Keychain. Run these two commands, replacing the placeholder values with the real ones I provide:
 
-security add-generic-password -a "notion" -s "notion-api-key" -w "MY_API_KEY"
-security add-generic-password -a "notion" -s "notion-database-id" -w "MY_DATABASE_ID"
+```bash
+security add-generic-password -a "notion" -s "notion-database-id" -w "YOUR_DATABASE_ID_HERE"
+```
 
-My API key is: [paste your ntn_ key here]
-My database ID is: [paste your 32-character ID here]
+No output means it worked. To verify, run:
 
-Then verify both stored correctly by running:
-
+```bash
 security find-generic-password -a "notion" -s "notion-api-key" -w
 security find-generic-password -a "notion" -s "notion-database-id" -w
 ```
 
-You should see both values printed back. If so, you're all set.
+You should see both values printed back. Once confirmed, you can start Claude Code again – it will never see your credentials because the script fetches them from Keychain at runtime.
 
 ---
 
