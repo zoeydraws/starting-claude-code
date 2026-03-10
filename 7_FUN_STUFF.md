@@ -255,8 +255,6 @@ If you write documentation or notes in markdown and want them published to Notio
 - **Dry run mode** – preview what would change before committing
 - **Secure credentials** – API key and database ID stored in macOS Keychain, never in project files or Claude's context
 
-**Important:** Like the anonymize tool, you run this in a separate terminal, outside of Claude Code.
-
 ### Setup and Usage
 
 See the tool's README for full setup (creating a Notion integration, storing credentials in Keychain, installing dependencies):
