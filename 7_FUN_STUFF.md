@@ -239,3 +239,26 @@ See each version's README for setup and usage instructions:
 
 - [Anonymize Research README](tools/Anonymize%20Research/README.md) (recommended)
 - [Anonymize Research – Western README](tools/Anonymize%20Research%20-%20Western/README.md)
+
+---
+
+## 4. Sync Markdown to Notion
+
+If you write documentation or notes in markdown and want them published to Notion, the `tools/Markdown to Notion/` folder has a Node.js script that syncs `.md` files to Notion pages.
+
+**What it does:** Converts a markdown file into Notion blocks and uploads it to a Notion database. If the page already exists, it **smart-diffs** – only changed blocks get updated, and comments on unchanged blocks are preserved.
+
+**Key features:**
+
+- **Smart sync** – block-level diffing means only what changed gets touched
+- **Comment preservation** – comments on unchanged blocks survive; comments on changed blocks are migrated to marker paragraphs so nothing is lost
+- **Dry run mode** – preview what would change before committing
+- **Secure credentials** – API key and database ID stored in macOS Keychain, never in project files or Claude's context
+
+**Important:** Like the anonymize tool, you run this in a separate terminal, outside of Claude Code.
+
+### Setup and Usage
+
+See the tool's README for full setup (creating a Notion integration, storing credentials in Keychain, installing dependencies):
+
+- [Markdown to Notion README](tools/Markdown%20to%20Notion/README.md)

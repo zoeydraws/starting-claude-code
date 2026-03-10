@@ -3,6 +3,7 @@
 A beginner guide to get Claude Code set up and start using it.
 
 > **Last updated:** March 2026
+> - Added [Markdown to Notion](tools/Markdown%20to%20Notion/) sync tool – smart-diff upload from `.md` files to Notion pages
 > - Split anonymize tool into multilingual (XLM-RoBERTa + two-pass detection) and Western-only versions, updated Fun Stuff guide with comparison table
 
 ## What Is Claude Code?
@@ -39,7 +40,7 @@ Anyone new to Claude Code who wants to get the baseline set up and start using i
 | [4_GETTING_GOOD_OUTPUT.md](4_GETTING_GOOD_OUTPUT.md) | How to prompt Claude for better results           |
 | [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)     | Speed up your workflow with shortcuts             |
 | [6_SKILLS.md](6_SKILLS.md)                           | Auto-triggered patterns (more advanced)           |
-| [7_FUN_STUFF.md](7_FUN_STUFF.md)                     | Status line, markdown preview, anonymization tools, and other extras |
+| [7_FUN_STUFF.md](7_FUN_STUFF.md)                     | Status line, markdown preview, Notion sync, and other extras |
 
 ## Starter Skills
 
@@ -62,6 +63,7 @@ The `tools/` folder contains mini tools and scripts I've built for my own workfl
 | ---- | ------------ |
 | [Anonymize Research](tools/Anonymize%20Research/) | Strip PII from research files using multilingual NER (recommended) |
 | [Anonymize Research – Western](tools/Anonymize%20Research%20-%20Western/) | Lighter Western-only name detection variant |
+| [Markdown to Notion](tools/Markdown%20to%20Notion/) | Smart-diff sync from markdown files to Notion pages |
 
 ## Templates
 
