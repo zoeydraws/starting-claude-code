@@ -40,6 +40,14 @@ When creating or editing markdown files, apply all of these formatting rules:
 
 ## Mode 2: Preview
 
+### Setup (one-time)
+
+Copy `notion.css` (included in this folder) to `~/.pandoc/`:
+
+```bash
+mkdir -p ~/.pandoc && cp notion.css ~/.pandoc/notion.css
+```
+
 ### Open (first time)
 
 When user says **"open [file].md"** or **"pandoc [file]"**, run:
