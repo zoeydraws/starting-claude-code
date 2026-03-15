@@ -41,6 +41,7 @@ Anyone new to Claude Code who wants to get the baseline set up and start using i
 | [5_SPEED_UP_WORKFLOW.md](5_SPEED_UP_WORKFLOW.md)     | Speed up your workflow with shortcuts             |
 | [6_SKILLS.md](6_SKILLS.md)                           | Auto-triggered patterns (more advanced)           |
 | [7_FUN_STUFF.md](7_FUN_STUFF.md)                     | Status line, markdown preview, Notion sync, and other extras |
+| [8_SYNC_ACROSS_MACHINES.md](8_SYNC_ACROSS_MACHINES.md) | Sync your ~/.claude config across multiple machines          |
 
 ## Starter Skills
 
