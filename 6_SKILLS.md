@@ -289,6 +289,24 @@ These are particularly relevant if you're doing product management, UX research,
 | **prd-generator**        | [claude-plugins.dev](https://claude-plugins.dev/skills/@jamesrochabrun/skills/prd-generator) | Generate comprehensive PRDs following best practices                                                                    |
 | **Product Requirements** | [MCP Market](https://mcpmarket.com/tools/skills/product-requirements)                        | Interactive PRD creation with quality scoring (aims for 90+ score across business value, UX, and technical constraints) |
 
+### Acceptance Criteria & Testing Skills
+
+These two skills work together as a pipeline: first generate testable acceptance criteria from your PRD, then turn those criteria into automated Playwright tests.
+
+| Skill | What It Does |
+| ----- | ------------ |
+| **acceptance-criteria** | Reads your PRD and codebase, then generates precise, testable acceptance criteria embedded directly in the PRD as `- [ ]` checkboxes. Covers happy paths, error states, boundary conditions, and "should NOT" regression checks. Scales depth by priority level (P0/P1/P2). |
+| **playwright-ac-tests** | Takes acceptance criteria and generates Playwright test files – state/interaction tests (`.spec.ts`), screenshot visual tests (`.visual.spec.ts`), and accessibility tests (`.a11y.spec.ts`). Handles Playwright setup, viewport config, and baseline generation. |
+
+**Typical workflow:**
+
+1. Write your PRD (or use the `/prd` skill)
+2. Run `/acceptance-criteria` to generate testable AC embedded in the PRD
+3. Run `/playwright-ac-tests` to generate automated tests from the AC
+4. Run the tests against your local dev server
+
+Both skills are included in the `skills/` folder of this repo – copy them to `~/.claude/skills/` to use across projects.
+
 ---
 
 ## Next Steps

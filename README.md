@@ -54,6 +54,8 @@ The `skills/` folder contains skills you can copy to `~/.claude/skills/` to use 
 | [review-session](skills/review-session/SKILL.md) | Summarize what you accomplished and update SESSION_LOG.md |
 | [transcript-analysis](skills/transcript-analysis/SKILL.md) | Extract quotes from interview transcripts, verify them, and cluster into themes |
 | [prd](skills/prd/SKILL.md) | Create and review product requirement documents through a 4-phase pipeline |
+| [acceptance-criteria](skills/acceptance-criteria/SKILL.md) | Generate testable acceptance criteria embedded in PRDs |
+| [playwright-ac-tests](skills/playwright-ac-tests/SKILL.md) | Generate and run Playwright tests from acceptance criteria |
 | [md](skills/md/SKILL.md) | Create, format, and preview markdown files with Notion + pandoc compatibility |
 
 ## Tools
