@@ -1,6 +1,6 @@
 ---
 name: wireflow-capture
-description: Authoring + capture workflow for HTML wireflows pushed into Figma via the html-to-design MCP. Use whenever the user works on a wireflow file (e.g. `<feature>-wireflow/index.html`) – editing markup, fixing layout, or pushing to Figma. Covers converter quirks, autolayout authoring rules, and the serve-capture-poll loop. Each capture creates a new frame on the target page; old captures stay until manually deleted in Figma.
+description: Authoring + capture workflow for HTML wireflows pushed into Figma via the html-to-design MCP. Use whenever the user works on a wireflow file (e.g. `<feature>-wireflow/index.html`) – editing markup, fixing layout, pushing to Figma, or making small text/style edits to an already-captured frame. Covers converter quirks, autolayout authoring rules, the serve-capture-poll loop, and the in-place edit path via `mcp__figma__use_figma`.
 ---
 
 # Wireflow Authoring & Capture
@@ -10,10 +10,20 @@ Pushes a local HTML wireflow into a Figma file via `mcp__figma__generate_figma_d
 ## When to use
 
 - Editing wireflow HTML in your wireflow folder (e.g. `<feature>-wireflow/index.html`) – apply authoring rules
-- Pushing to Figma ("re-capture", "push to figma", "update the wireflow") – run the procedure
+- Pushing to Figma ("re-capture", "push to figma", "update the wireflow") – run the capture procedure
+- Making a small text or style tweak to an already-captured frame ("change this text in Figma", "update the colour on frame X") – use the in-place edit path
 - Captured frame looks broken – diagnose via failure modes
 
 **Visual style spec lives in `./STYLE_GUIDE.md`** – read it before authoring new components or starting a new wireflow. It covers tokens, type scale, spacing, component patterns. The included guide is a starting point; swap tokens for your own brand if needed.
+
+## Capture vs in-place edit – decision tree
+
+| Type of change | Path | Why |
+|---|---|---|
+| New scenario, new layout, structural HTML edit, multi-frame change | Capture procedure (creates a new frame) | HTML is the source of truth; structural edits are easier to author in HTML and re-capture |
+| Small text/style/colour tweak on one specific frame | In-place edit via `mcp__figma__use_figma` | Faster than re-capture, no stale frame to clean up, no waiting on poll loop |
+
+**HTML is always the source of truth.** Whichever path you use, also patch `<feature>-wireflow/index.html` to match. Otherwise the next re-capture will re-introduce the old text and silently undo the in-place edit. No exceptions.
 
 ## Authoring rules
 
@@ -98,6 +108,46 @@ Iterate fast: don't stop the server between captures. Only stop if the user says
 
 Give the user the new node URL (e.g. `figma.com/design/.../?node-id=215-2`). Mention prior capture node ids so they can delete stale frames.
 
+## Procedure: in-place edit (small tweaks to one frame)
+
+Use this when the user wants to change text, colour, or a similar small property on a specific captured frame, *not* re-author + re-capture.
+
+### 1. Get the target node ID
+
+The user must point at a specific frame. Accept any of:
+- A Figma URL containing `?node-id=238-1835` – convert hyphens to colons → `238:1835`.
+- A bare node ID like `238:1835`.
+
+If they say "this frame" without a link, ask for the URL or node ID. Don't guess – the file has many captured frames.
+
+### 2. Run `mcp__figma__use_figma`
+
+`fileKey` from the URL (`figma.com/design/:fileKey/...`) – ask the user if unknown. `code` is a small Plugin API script that finds the target nodes inside the frame and edits them.
+
+### 3. Font-loading rule for text edits
+
+Setting `node.characters` on a TEXT node throws unless every font used in that node is loaded first. The correct call is `getRangeFontName(i, i+1)` per character index – there is no `getRangeAllFontNames` method, contrary to what intuition suggests.
+
+```js
+const fonts = new Set();
+for (let i = 0; i < t.characters.length; i++) {
+  const f = t.getRangeFontName(i, i + 1);
+  if (f !== figma.mixed) fonts.add(JSON.stringify(f));
+}
+for (const fStr of fonts) await figma.loadFontAsync(JSON.parse(fStr));
+t.characters = "new value";
+```
+
+For a single-font node, just `loadFontAsync(t.fontName)` works. The loop above handles mixed-font nodes safely.
+
+### 4. Patch the HTML to match (mandatory)
+
+After every successful in-place edit, update `<feature>-wireflow/index.html` with the same change. Skipping this step lets the next re-capture silently overwrite the in-place edit and brings back the old value. HTML is the source of truth.
+
+### 5. Report
+
+Tell the user how many nodes were updated, the node IDs touched, and confirm the HTML was patched.
+
 ## Failure modes
 
 - **Polling never completes:** browser didn't load the page. Check the tab focused / opened. After 10 polls, inspect `/tmp/wireflow-server.log` for 404s on the capture script.
@@ -109,6 +159,6 @@ Give the user the new node URL (e.g. `figma.com/design/.../?node-id=215-2`). Men
 
 ## Notes
 
-- Each capture creates a NEW frame; converter never edits existing ones. Stale frames accumulate – delete in Figma when crowded.
+- Each capture creates a NEW frame; the html-to-design converter never edits existing ones. Stale frames accumulate – delete in Figma when crowded. (Note: the in-place edit path via `mcp__figma__use_figma` *can* update existing frames – use it for small tweaks; see decision tree above.)
 - Capture script tag is harmless to leave in production.
 - Parallel captures supported (each gets its own captureId), but for iterate-recapture, keep them sequential.
