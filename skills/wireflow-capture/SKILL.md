@@ -61,12 +61,12 @@ body { margin: 0; padding: 0; }
 **Text-content card pattern (stickies, scenario-intro, dialogs).** Cards with wrapping prose are captured as fixed-height. Figma re-renders text and often wraps to one extra line, overflowing the frame. Flex doesn't fix this – tested. Add a bottom-padding buffer instead:
 
 ```css
-.sticky          { padding: 14px 16px 22px; }    /* +8px  ≈ half line of 13px text */
+.sticky          { padding: 14px 16px 36px; }    /* +22px ≈ one full line of 13px text + cushion */
 .scenario-intro  { padding: 20px 24px 36px; }    /* +16px ≈ one line of 13px text */
 .ref-card        { padding: 24px 28px 40px; }    /* +16px */
 ```
 
-Buffer rule: roughly `1.2× line-height` of body text inside. Add buffers reactively when a card overflows, not pre-emptively. Candidates if they break: `.ref-example`, `.dialog`, `.sched-card`.
+Buffer rule: at least one full line-height of body text inside (Figma can wrap one line longer than the browser). Add buffers reactively when a card overflows, not pre-emptively. Candidates if they break: `.ref-example`, `.dialog`, `.sched-card`.
 
 **Optional – em-dash hook:** if your repo blocks `U+2014` in writes (some teams enforce this via a pre-tool-use hook), use en-dash, comma, or parens. Normalise user-pasted content before writing.
 
